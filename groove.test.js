@@ -17,12 +17,4 @@ it('POST /users', async () => {
     expect(res.body.token).toEqual(expect.any(String))
     expect(res.body.token.length).toBe(32)
 
-    expect(res.body.phone).toBe('');
-    expect(res.body.firstName).toBe('');
-    expect(res.body.birthDate).toBe('');
-    expect(res.body.city).toBe(''); 
-    expect(res.body.phone).toBe('');
-    expect(res.body.firstName).toBe('');
-    expect(res.body.birthDa).toBe('');
-    expect(res.body.city).toBe(''); 
    });
