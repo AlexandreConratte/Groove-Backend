@@ -1,0 +1,1711 @@
+[
+    {
+        "name": "Hellfest",
+        "start": "17/06/2024",
+        "end": "19/06/2024",
+        "averageParticipant": 60000,
+        "description": "Le Hellfest est un festival de musique metal se déroulant chaque année à Clisson en Loire-Atlantique.",
+        "moreAbout": "Le Hellfest est l'un des plus grands festivals de musique metal au monde, attirant des fans du monde entier. Il propose une programmation variée avec des artistes renommés de divers sous-genres du metal.",
+        "artists": [
+            "Metallica",
+            "Guns N' Roses",
+            "Deftones",
+            "Faith No More",
+            "Judas Priest",
+            "Nightwish",
+            "Deep Purple",
+            "Nine Inch Nails",
+            "Scorpions",
+            "Megadeth"
+        ],
+        "pictures": [],
+        "styles": [
+            "Metal",
+            "Hard Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Val de Moine",
+            "city": "Clisson",
+            "longitude": "-1.2768",
+            "latitude": "47.0887"
+        }
+    },
+    {
+        "name": "Main Square Festival",
+        "start": "01/07/2024",
+        "end": "03/07/2024",
+        "averageParticipant": 40000,
+        "description": "Le Main Square Festival est un festival de musique pop et rock se déroulant à Arras dans le Pas-de-Calais.",
+        "moreAbout": "Le Main Square Festival propose une programmation éclectique, mêlant des artistes internationaux et des talents émergents. Il se déroule sur la majestueuse Citadelle d'Arras, offrant une atmosphère unique.",
+        "artists": [
+            "The Killers",
+            "Green Day",
+            "Muse",
+            "Imagine Dragons",
+            "Vampire Weekend",
+            "Angèle",
+            "Twenty One Pilots",
+            "Royal Blood",
+            "Foals",
+            "The Lumineers"
+        ],
+        "pictures": [],
+        "styles": [
+            "Pop",
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Citadelle d'Arras",
+            "city": "Arras",
+            "longitude": "2.7787",
+            "latitude": "50.2872"
+        }
+    },
+    {
+        "name": "Festival des Vieilles Charrues",
+        "start": "21/07/2024",
+        "end": "24/07/2024",
+        "averageParticipant": 60000,
+        "description": "Le Festival des Vieilles Charrues est un festival de musique multi-genres se tenant à Carhaix en Bretagne.",
+        "moreAbout": "Le Festival des Vieilles Charrues est l'un des plus grands festivals de France. Il propose une programmation variée allant de la pop au rock en passant par le rap et l'électro. Son ambiance conviviale attire chaque année des milliers de festivaliers.",
+        "artists": [
+            "Stromae",
+            "Coldplay",
+            "Nekfeu",
+            "Black Eyed Peas",
+            "Patti Smith",
+            "Orelsan",
+            "Indochine",
+            "Paul McCartney",
+            "Angèle",
+            "Soprano"
+        ],
+        "pictures": [],
+        "styles": [
+            "Pop",
+            "Rock",
+            "Rap",
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Presqu'île de Kerampuilh",
+            "city": "Carhaix",
+            "longitude": "-3.5733",
+            "latitude": "48.2766"
+        }
+    },
+    {
+        "name": "Rock en Seine",
+        "start": "26/08/2024",
+        "end": "28/08/2024",
+        "averageParticipant": 35000,
+        "description": "Rock en Seine est un festival de musique rock et pop se déroulant au Domaine national de Saint-Cloud près de Paris.",
+        "moreAbout": "Rock en Seine est l'un des festivals les plus importants de France. Il propose une programmation éclectique avec des artistes nationaux et internationaux. Le cadre historique du Domaine national de Saint-Cloud offre une atmosphère unique.",
+        "artists": [
+            "Arctic Monkeys",
+            "The Strokes",
+            "Gorillaz",
+            "Radiohead",
+            "Foals",
+            "Muse",
+            "Tame Impala",
+            "The Chemical Brothers",
+            "The Cure",
+            "Queens of the Stone Age"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock",
+            "Pop"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Domaine national de Saint-Cloud",
+            "city": "Saint-Cloud",
+            "longitude": "2.2167",
+            "latitude": "48.8467"
+        }
+    },
+    {
+        "name": "Solidays",
+        "start": "05/07/2024",
+        "end": "07/07/2024",
+        "averageParticipant": 30000,
+        "description": "Solidays est un festival de musique engagé dans la lutte contre le SIDA, se tenant à l'Hippodrome de Longchamp à Paris.",
+        "moreAbout": "Solidays est un festival qui mêle concerts, animations et sensibilisation à la cause du SIDA. Il propose une programmation variée, allant du rock à l'électro en passant par le rap, et accueille de nombreux artistes engagés.",
+        "artists": [
+            "Macklemore",
+            "Angèle",
+            "Orelsan",
+            "Lomepal",
+            "M",
+            "Suprême NTM",
+            "Roméo Elvis",
+            "Jeanne Added",
+            "Vitalic",
+            "Django Django"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock",
+            "Rap",
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Hippodrome de Longchamp",
+            "city": "Paris",
+            "longitude": "2.2367",
+            "latitude": "48.8584"
+        }
+    },
+    {
+        "name": "Garorock",
+        "start": "27/06/2024",
+        "end": "30/06/2024",
+        "averageParticipant": 50000,
+        "description": "Le Garorock est un festival de musique multi-genres se déroulant à Marmande en Nouvelle-Aquitaine.",
+        "moreAbout": "Le Garorock propose une programmation éclectique mêlant rock, rap, électro et bien d'autres styles musicaux. Il se déroule sur les rives de la Garonne, offrant une ambiance festive et conviviale.",
+        "artists": [
+            "Muse",
+            "Soprano",
+            "Niska",
+            "Vianney",
+            "The Lumineers",
+            "Therapie Taxi",
+            "Sum 41",
+            "Dub Inc",
+            "Vald",
+            "Lomepal"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock",
+            "Rap",
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Plaine de la Filhole",
+            "city": "Marmande",
+            "longitude": "0.1621",
+            "latitude": "44.5031"
+        }
+    },
+    {
+        "name": "Fête de l'Humanité",
+        "start": "14/09/2024",
+        "end": "16/09/2024",
+        "averageParticipant": 100000,
+        "description": "La Fête de l'Humanité est un festival de musique et de culture organisé par le journal L'Humanité, se tenant au Parc départemental de La Courneuve en Île-de-France.",
+        "moreAbout": "La Fête de l'Humanité est un événement engagé politiquement et socialement, proposant une programmation variée mêlant musique, débats, expositions et activités pour toute la famille. Elle accueille des artistes engagés et des personnalités politiques.",
+        "artists": [
+            "Julien Doré",
+            "Renaud",
+            "Soprano",
+            "Bernard Lavilliers",
+            "Les Ogres de Barback",
+            "Saez",
+            "IAM",
+            "Raggasonic",
+            "Alain Souchon",
+            "Rachid Taha"
+        ],
+        "pictures": [],
+        "styles": [
+            "Variété française",
+            "Rap",
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Parc départemental de La Courneuve",
+            "city": "La Courneuve",
+            "longitude": "2.3966",
+            "latitude": "48.9307"
+        }
+    },
+    {
+        "name": "Les Francofolies de La Rochelle",
+        "start": "13/07/2024",
+        "end": "17/07/2024",
+        "averageParticipant": 60000,
+        "description": "Les Francofolies de La Rochelle sont un festival de musique consacré à la chanson francophone, se tenant à La Rochelle en Charente-Maritime.",
+        "moreAbout": "Les Francofolies de La Rochelle sont un rendez-vous incontournable de la chanson francophone. Elles proposent une programmation variée mettant en avant des artistes établis et des talents émergents de la scène francophone.",
+        "artists": [
+            "Stromae",
+            "Angèle",
+            "Jean-Louis Aubert",
+            "Clara Luciani",
+            "Orelsan",
+            "Véronique Sanson",
+            "Julien Doré",
+            "Louane",
+            "Boulevard des Airs",
+            "Therapie Taxi"
+        ],
+        "pictures": [],
+        "styles": [
+            "Chanson française",
+            "Pop",
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Vieux Port de La Rochelle",
+            "city": "La Rochelle",
+            "longitude": "-1.1521",
+            "latitude": "46.1591"
+        }
+    },
+    {
+        "name": "Printemps de Bourges",
+        "start": "20/04/2024",
+        "end": "25/04/2024",
+        "averageParticipant": 50000,
+        "description": "Le Printemps de Bourges est un festival de musique pluridisciplinaire se déroulant à Bourges dans le Cher.",
+        "moreAbout": "Le Printemps de Bourges est l'un des festivals les plus importants de France, mettant en avant la diversité musicale. Il propose des concerts, des expositions, des rencontres professionnelles et bien d'autres activités.",
+        "artists": [
+            "Damso",
+            "Christine and the Queens",
+            "David Guetta",
+            "PNL",
+            "Ibrahim Maalouf",
+            "Oxmo Puccino",
+            "Lous and the Yakuza",
+            "Suzane",
+            "GIMS",
+            "Lomepal"
+        ],
+        "pictures": [],
+        "styles": [
+            "Pop",
+            "Rap",
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Bourges",
+            "city": "Bourges",
+            "longitude": "2.3983",
+            "latitude": "47.0838"
+        }
+    },
+    {
+        "name": "Les Nuits de Fourvière",
+        "start": "01/06/2024",
+        "end": "31/07/2024",
+        "averageParticipant": 15000,
+        "description": "Les Nuits de Fourvière sont un festival de musique, de théâtre et de danse se déroulant à Lyon.",
+        "moreAbout": "Les Nuits de Fourvière proposent une programmation éclectique mêlant musique, théâtre et danse dans un cadre historique exceptionnel, le théâtre antique de Fourvière. Le festival attire un public varié et propose des spectacles de grande qualité.",
+        "artists": [
+            "Ibrahim Maalouf",
+            "Mylène Farmer",
+            "Philip Glass",
+            "Nekfeu",
+            "Marina Kaye",
+            "François Feldman",
+            "Brigitte Fontaine",
+            "Benjamin Biolay",
+            "Lomepal",
+            "Alain Souchon"
+        ],
+        "pictures": [],
+        "styles": [
+            "Pop",
+            "Classique",
+            "Rap"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Théâtre antique de Fourvière",
+            "city": "Lyon",
+            "longitude": "4.8221",
+            "latitude": "45.7623"
+        }
+    },
+    {
+        "name": "Pitchfork Music Festival Paris",
+        "start": "01/11/2024",
+        "end": "03/11/2024",
+        "averageParticipant": 10000,
+        "description": "Le Pitchfork Music Festival Paris est un festival de musique indépendante se tenant à Paris.",
+        "moreAbout": "Le Pitchfork Music Festival Paris met en avant les artistes émergents et les tendances musicales actuelles de la scène indépendante. Il propose une programmation pointue et éclectique dans un cadre intimiste.",
+        "artists": [
+            "FKA Twigs",
+            "Bon Iver",
+            "Tame Impala",
+            "Björk",
+            "Tyler, The Creator",
+            "The National",
+            "King Krule",
+            "Grimes",
+            "Vampire Weekend",
+            "LCD Soundsystem"
+        ],
+        "pictures": [],
+        "styles": [
+            "Indie",
+            "Électro",
+            "Pop"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Grande Halle de la Villette",
+            "city": "Paris",
+            "longitude": "2.3906",
+            "latitude": "48.8936"
+        }
+    },
+    {
+        "name": "Jazz à Vienne",
+        "start": "28/06/2024",
+        "end": "13/07/2024",
+        "averageParticipant": 20000,
+        "description": "Jazz à Vienne est un festival de musique jazz se tenant à Vienne dans l'Isère.",
+        "moreAbout": "Jazz à Vienne est l'un des festivals de jazz les plus réputés d'Europe. Il propose une programmation variée avec des artistes de renommée internationale ainsi que des talents émergents. Le festival se déroule dans un cadre historique exceptionnel, le théâtre antique de Vienne.",
+        "artists": [
+            "Chick Corea",
+            "Jamie Cullum",
+            "Marcus Miller",
+            "Melody Gardot",
+            "Gregory Porter",
+            "Snarky Puppy",
+            "Ibrahim Maalouf",
+            "Norah Jones",
+            "Manu Dibango",
+            "Herbie Hancock"
+        ],
+        "pictures": [],
+        "styles": [
+            "Jazz"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Théâtre antique de Vienne",
+            "city": "Vienne",
+            "longitude": "4.8747",
+            "latitude": "45.5258"
+        }
+    },
+    {
+        "name": "Les Rencontres Trans Musicales",
+        "start": "05/12/2024",
+        "end": "09/12/2024",
+        "averageParticipant": 15000,
+        "description": "Les Rencontres Trans Musicales sont un festival de musique alternative se tenant à Rennes.",
+        "moreAbout": "Les Rencontres Trans Musicales sont un tremplin pour les artistes émergents et les tendances musicales innovantes. Le festival propose une programmation audacieuse et éclectique, mettant en avant la diversité musicale.",
+        "artists": [
+            "SOPHIE",
+            "Fatoumata Diawara",
+            "Hocus Pocus",
+            "Grimes",
+            "The Blaze",
+            "Khruangbin",
+            "Shame",
+            "Moses Boyd",
+            "Lomepal"
+        ],
+        "pictures": [],
+        "styles": [
+            "Alternative",
+            "Électro",
+            "Pop"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Rennes",
+            "city": "Rennes",
+            "longitude": "-1.6773",
+            "latitude": "48.1173"
+        }
+    },
+    {
+        "name": "Les Eurockéennes de Brest",
+        "start": "12/07/2024",
+        "end": "14/07/2024",
+        "averageParticipant": 25000,
+        "description": "Les Eurockéennes de Brest sont un festival de musique rock se tenant à Brest.",
+        "moreAbout": "Les Eurockéennes de Brest proposent une programmation rock variée avec des artistes nationaux et internationaux. Le festival se déroule dans un cadre naturel exceptionnel, en bord de mer, offrant une atmosphère conviviale.",
+        "artists": [
+            "Placebo",
+            "Marilyn Manson",
+            "The Offspring",
+            "Mogwai",
+            "Patti Smith",
+            "Franz Ferdinand",
+            "Archive",
+            "The Hives",
+            "Rage Against the Machine",
+            "Dropkick Murphys"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Plage du Moulin Blanc",
+            "city": "Brest",
+            "longitude": "-4.4787",
+            "latitude": "48.3846"
+        }
+    },
+    {
+        "name": "La Route du Rock",
+        "start": "16/08/2024",
+        "end": "19/08/2024",
+        "averageParticipant": 15000,
+        "description": "La Route du Rock est un festival de musique indie et rock se tenant à Saint-Malo.",
+        "moreAbout": "La Route du Rock propose une programmation indie et rock pointue, mettant en avant des artistes émergents et des têtes d'affiche internationales. Le festival se déroule dans un cadre unique, entre terre et mer, à Saint-Malo et ses environs.",
+        "artists": [
+            "Belle and Sebastian",
+            "The National",
+            "Baxter Dury",
+            "King Krule",
+            "Foals",
+            "Shame",
+            "Fontaines D.C.",
+            "Sleaford Mods",
+            "Metronomy",
+            "Mac DeMarco"
+        ],
+        "pictures": [],
+        "styles": [
+            "Indie",
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Fort Saint-Père",
+            "city": "Saint-Malo",
+            "longitude": "-2.0058",
+            "latitude": "48.6575"
+        }
+    },
+    {
+        "name": "Les Siestes Électroniques",
+        "start": "05/07/2024",
+        "end": "08/07/2024",
+        "averageParticipant": 8000,
+        "description": "Les Siestes Électroniques sont un festival de musique électronique se tenant à Toulouse.",
+        "moreAbout": "Les Siestes Électroniques proposent une expérience musicale unique en invitant des artistes électroniques à se produire en plein air dans des lieux insolites de Toulouse. Le festival encourage la découverte et l'expérimentation sonore.",
+        "artists": [
+            "Apparat",
+            "Amelie Lens",
+            "John Talabot",
+            "Motor City Drum Ensemble",
+            "Peggy Gou",
+            "Lena Willikens",
+            "Kamaal Williams",
+            "Modeselektor",
+            "Polo & Pan",
+            "Laurent Garnier"
+        ],
+        "pictures": [],
+        "styles": [
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Toulouse",
+            "city": "Toulouse",
+            "longitude": "1.4442",
+            "latitude": "43.6047"
+        }
+    },
+    {
+        "name": "Nuits Sonores",
+        "start": "22/05/2024",
+        "end": "26/05/2024",
+        "averageParticipant": 25000,
+        "description": "Nuits Sonores est un festival de musique électronique se tenant à Lyon.",
+        "moreAbout": "Nuits Sonores est l'un des festivals de musique électronique les plus réputés en Europe. Il propose une programmation audacieuse et éclectique, mettant en avant les tendances actuelles de la scène électronique mondiale.",
+        "artists": [
+            "Four Tet",
+            "Jon Hopkins",
+            "Marcel Dettmann",
+            "Nina Kraviz",
+            "Jeff Mills",
+            "Dixon",
+            "Ben UFO",
+            "DJ Koze",
+            "The Black Madonna",
+            "Floating Points"
+        ],
+        "pictures": [],
+        "styles": [
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Lyon",
+            "city": "Lyon",
+            "longitude": "4.8357",
+            "latitude": "45.7640"
+        }
+    },
+    {
+        "name": "Festival Beauregard",
+        "start": "07/07/2024",
+        "end": "10/07/2024",
+        "averageParticipant": 25000,
+        "description": "Le Festival Beauregard est un festival de musique rock et pop se tenant à Hérouville-Saint-Clair.",
+        "moreAbout": "Le Festival Beauregard propose une programmation variée avec des artistes nationaux et internationaux. Il se déroule dans un cadre verdoyant, au cœur du parc du château de Beauregard.",
+        "artists": [
+            "Tame Impala",
+            "Massive Attack",
+            "The Chemical Brothers",
+            "Twenty One Pilots",
+            "Angèle",
+            "Ibrahim Maalouf",
+            "Stromae",
+            "Damso",
+            "Franz Ferdinand",
+            "Orelsan"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock",
+            "Pop"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Parc du château de Beauregard",
+            "city": "Hérouville-Saint-Clair",
+            "longitude": "-0.3458",
+            "latitude": "49.2103"
+        }
+    },
+    {
+        "name": "Electrobeach Music Festival",
+        "start": "13/07/2024",
+        "end": "15/07/2024",
+        "averageParticipant": 40000,
+        "description": "L'Electrobeach Music Festival est un festival de musique électronique se tenant à Le Barcarès.",
+        "moreAbout": "L'Electrobeach Music Festival est l'un des plus grands festivals de musique électronique en Europe. Il propose une programmation variée avec les meilleurs DJs de la scène internationale, dans un cadre exceptionnel en bord de mer.",
+        "artists": [
+            "Martin Garrix",
+            "Armin van Buuren",
+            "David Guetta",
+            "Steve Aoki",
+            "Charlotte de Witte",
+            "Carl Cox",
+            "Nina Kraviz",
+            "Paul Kalkbrenner",
+            "Deadmau5",
+            "Diplo"
+        ],
+        "pictures": [],
+        "styles": [
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Plage du Barcarès",
+            "city": "Le Barcarès",
+            "longitude": "3.0361",
+            "latitude": "42.7940"
+        }
+    },
+    {
+        "name": "Festival Jazz à Juan",
+        "start": "12/07/2024",
+        "end": "21/07/2024",
+        "averageParticipant": 15000,
+        "description": "Le Festival Jazz à Juan est un festival de musique jazz se tenant à Juan-les-Pins.",
+        "moreAbout": "Le Festival Jazz à Juan est l'un des festivals de jazz les plus prestigieux au monde. Il propose une programmation exceptionnelle avec les plus grands noms du jazz et des artistes émergents, dans un cadre idyllique en bord de mer.",
+        "artists": [
+            "Diana Krall",
+            "Wynton Marsalis",
+            "Chick Corea",
+            "Jamie Cullum",
+            "Ibrahim Maalouf",
+            "Manu Dibango",
+            "Melody Gardot",
+            "Gregory Porter",
+            "Kenny Garrett",
+            "GoGo Penguin"
+        ],
+        "pictures": [],
+        "styles": [
+            "Jazz"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Pinède Gould",
+            "city": "Juan-les-Pins",
+            "longitude": "7.0887",
+            "latitude": "43.5753"
+        }
+    },
+    {
+        "name": "Festival Musilac",
+        "start": "11/07/2024",
+        "end": "14/07/2024",
+        "averageParticipant": 30000,
+        "description": "Le Festival Musilac est un festival de musique pop et rock se tenant à Aix-les-Bains.",
+        "moreAbout": "Le Festival Musilac propose une programmation éclectique mêlant pop et rock avec des artistes nationaux et internationaux. Il se déroule au bord du lac du Bourget, offrant un cadre magnifique pour les concerts.",
+        "artists": [
+            "Lenny Kravitz",
+            "The Weeknd",
+            "Phoenix",
+            "M",
+            "Ibrahim Maalouf",
+            "Juliette Armanet",
+            "Lomepal",
+            "Rival Sons",
+            "Yannick Noah",
+            "Metronomy"
+        ],
+        "pictures": [],
+        "styles": [
+            "Pop",
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Esplanade du Lac",
+            "city": "Aix-les-Bains",
+            "longitude": "5.9180",
+            "latitude": "45.6931"
+        }
+    },
+    {
+        "name": "Festival des Papillons de Nuit",
+        "start": "01/06/2024",
+        "end": "03/06/2024",
+        "averageParticipant": 20000,
+        "description": "Le Festival des Papillons de Nuit est un festival de musique pop et rock se tenant à Saint-Laurent-de-Cuves.",
+        "moreAbout": "Le Festival des Papillons de Nuit propose une programmation variée avec des artistes renommés et des découvertes musicales. Il se déroule dans un cadre naturel préservé, offrant une atmosphère conviviale et festive.",
+        "artists": [
+            "Muse",
+            "Lenny Kravitz",
+            "Catherine Ringer",
+            "Niska",
+            "Therapie Taxi",
+            "Jain",
+            "Hoshi",
+            "Last Train",
+            "Les Innocents",
+            "L'Impératrice"
+        ],
+        "pictures": [],
+        "styles": [
+            "Pop",
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Site de la ville",
+            "city": "Saint-Laurent-de-Cuves",
+            "longitude": "-1.1921",
+            "latitude": "48.7339"
+        }
+    },
+    {
+        "name": "Festival Interceltique de Lorient",
+        "start": "02/08/2024",
+        "end": "11/08/2024",
+        "averageParticipant": 70000,
+        "description": "Le Festival Interceltique de Lorient est un festival de musique celtique se tenant à Lorient.",
+        "moreAbout": "Le Festival Interceltique de Lorient est l'un des plus grands festivals dédiés à la culture celtique au monde. Il propose une programmation riche mettant en avant la musique, la danse, les arts et traditions celtiques.",
+        "artists": [
+            "Alan Stivell",
+            "Nolwenn Leroy",
+            "Dan Ar Braz",
+            "Denez Prigent",
+            "Celtic Woman",
+            "Carlos Núñez",
+            "Manau",
+            "Capercaillie",
+            "Bagad de Lann-Bihoué",
+            "Tri Yann"
+        ],
+        "pictures": [],
+        "styles": [
+            "Celtique",
+            "Folk"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Lorient",
+            "city": "Lorient",
+            "longitude": "-3.3660",
+            "latitude": "47.7486"
+        }
+    },
+    {
+        "name": "Les Nuits de la Guitare de Patrimonio",
+        "start": "21/07/2024",
+        "end": "28/07/2024",
+        "averageParticipant": 10000,
+        "description": "Les Nuits de la Guitare de Patrimonio est un festival de musique dédié à la guitare se tenant à Patrimonio en Corse.",
+        "moreAbout": "Les Nuits de la Guitare de Patrimonio rassemblent chaque année les plus grands guitaristes de la scène internationale. Le festival propose une programmation variée allant du rock au blues en passant par le jazz, dans un cadre exceptionnel au cœur des vignobles de Patrimonio.",
+        "artists": [
+            "Joe Satriani",
+            "John McLaughlin",
+            "Eric Clapton",
+            "Carlos Santana",
+            "Jeff Beck",
+            "B.B. King",
+            "Slash",
+            "Mark Knopfler",
+            "Steve Vai",
+            "Django Reinhardt"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock",
+            "Blues",
+            "Jazz"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Théâtre de Verdure de Patrimonio",
+            "city": "Patrimonio",
+            "longitude": "9.3822",
+            "latitude": "42.6983"
+        }
+    },
+    {
+        "name": "Festival La Route du Rock Collection Hiver",
+        "start": "24/02/2024",
+        "end": "26/02/2024",
+        "averageParticipant": 8000,
+        "description": "La Route du Rock Collection Hiver est un festival de musique indie et rock se tenant à Saint-Malo.",
+        "moreAbout": "La Route du Rock Collection Hiver propose une programmation alternative et intimiste. Le festival se déroule dans différents lieux emblématiques de Saint-Malo, offrant une atmosphère chaleureuse et conviviale en hiver.",
+        "artists": [
+            "Belle and Sebastian",
+            "The National",
+            "Beach House",
+            "Sharon Van Etten",
+            "Yo La Tengo",
+            "King Krule",
+            "Fontaines D.C.",
+            "Sleaford Mods",
+            "Cigarettes After Sex",
+            "Metronomy"
+        ],
+        "pictures": [],
+        "styles": [
+            "Indie",
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Saint-Malo",
+            "city": "Saint-Malo",
+            "longitude": "-2.0058",
+            "latitude": "48.6495"
+        }
+    },
+    {
+        "name": "Festival Le Cabaret Vert",
+        "start": "22/08/2024",
+        "end": "25/08/2024",
+        "averageParticipant": 40000,
+        "description": "Le Festival Le Cabaret Vert est un festival de musique rock, pop, et électro se tenant à Charleville-Mézières.",
+        "moreAbout": "Le Festival Le Cabaret Vert propose une programmation éclectique avec des artistes de renommée internationale et des découvertes musicales. Il se déroule dans un cadre verdoyant, au cœur du parc de Charleville-Mézières.",
+        "artists": [
+            "Arctic Monkeys",
+            "Lana Del Rey",
+            "Ninho",
+            "Cypress Hill",
+            "Disclosure",
+            "Limp Bizkit",
+            "Orelsan",
+            "Richie Hawtin",
+            "Amelie Lens",
+            "The Blaze"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock",
+            "Pop",
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Parc de Charleville-Mézières",
+            "city": "Charleville-Mézières",
+            "longitude": "4.7267",
+            "latitude": "49.7734"
+        }
+    },
+    {
+        "name": "Festival Les Déferlantes Sud de France",
+        "start": "12/07/2024",
+        "end": "16/07/2024",
+        "averageParticipant": 30000,
+        "description": "Le Festival Les Déferlantes Sud de France est un festival de musique pop et rock se tenant à Argelès-sur-Mer.",
+        "moreAbout": "Le Festival Les Déferlantes Sud de France propose une programmation variée avec des artistes nationaux et internationaux. Il se déroule dans un cadre exceptionnel, sur la plage d'Argelès-sur-Mer, offrant une ambiance festive et estivale.",
+        "artists": [
+            "Muse",
+            "Niska",
+            "Imagine Dragons",
+            "Julien Doré",
+            "Christine and the Queens",
+            "PNL",
+            "Nekfeu",
+            "Renaud",
+            "The Chemical Brothers",
+            "Mylène Farmer"
+        ],
+        "pictures": [],
+        "styles": [
+            "Pop",
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Plage d'Argelès-sur-Mer",
+            "city": "Argelès-sur-Mer",
+            "longitude": "3.0283",
+            "latitude": "42.5467"
+        }
+    },
+    {
+        "name": "Festival Les Vieilles Charrues",
+        "start": "18/07/2024",
+        "end": "21/07/2024",
+        "averageParticipant": 70000,
+        "description": "Le Festival Les Vieilles Charrues est un festival de musique pluridisciplinaire se tenant à Carhaix-Plouguer.",
+        "moreAbout": "Le Festival Les Vieilles Charrues est l'un des plus grands festivals de musique en France, proposant une programmation éclectique avec des artistes de renommée mondiale. Il se déroule dans un cadre champêtre, au cœur de la Bretagne.",
+        "artists": [
+            "Coldplay",
+            "Rihanna",
+            "David Guetta",
+            "Kendrick Lamar",
+            "Ed Sheeran",
+            "Soprano",
+            "Stromae",
+            "Twenty One Pilots",
+            "The Chemical Brothers",
+            "Calogero"
+        ],
+        "pictures": [],
+        "styles": [
+            "Pop",
+            "Rock",
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Site de Kerampuilh",
+            "city": "Carhaix-Plouguer",
+            "longitude": "-3.5764",
+            "latitude": "48.2825"
+        }
+    },
+    {
+        "name": "Festival Marsatac",
+        "start": "19/09/2024",
+        "end": "21/09/2024",
+        "averageParticipant": 25000,
+        "description": "Le Festival Marsatac est un festival de musique électronique se tenant à Marseille.",
+        "moreAbout": "Le Festival Marsatac est un événement majeur de la scène électronique en France. Il propose une programmation variée avec des artistes nationaux et internationaux, dans un cadre urbain et contemporain.",
+        "artists": [
+            "Chemical Brothers",
+            "Disclosure",
+            "Charlotte de Witte",
+            "Bonobo",
+            "Amelie Lens",
+            "Nina Kraviz",
+            "Rone",
+            "Lomepal",
+            "Vald",
+            "The Blaze"
+        ],
+        "pictures": [],
+        "styles": [
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Parc Chanot",
+            "city": "Marseille",
+            "longitude": "5.4037",
+            "latitude": "43.2822"
+        }
+    },
+    {
+        "name": "Festival Les Nuits Secrètes",
+        "start": "26/07/2024",
+        "end": "29/07/2024",
+        "averageParticipant": 25000,
+        "description": "Le Festival Les Nuits Secrètes est un festival de musique indie et électro se tenant à Aulnoye-Aymeries.",
+        "moreAbout": "Le Festival Les Nuits Secrètes propose une programmation éclectique et atypique, mettant en avant des artistes émergents et des projets artistiques innovants. Il se déroule dans un cadre urbain et festif, offrant une expérience musicale unique.",
+        "artists": [
+            "Foals",
+            "Jon Hopkins",
+            "Metronomy",
+            "Amelie Lens",
+            "Lomepal",
+            "Benjamin Biolay",
+            "Moodoïd",
+            "Aya Nakamura",
+            "Last Train",
+            "Vitalic"
+        ],
+        "pictures": [],
+        "styles": [
+            "Indie",
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Aulnoye-Aymeries",
+            "city": "Aulnoye-Aymeries",
+            "longitude": "3.8977",
+            "latitude": "50.2498"
+        }
+    },
+    {
+        "name": "Festival des Hortillonnages",
+        "start": "14/06/2024",
+        "end": "16/06/2024",
+        "averageParticipant": 10000,
+        "description": "Le Festival des Hortillonnages est un festival de musique éclectique se tenant à Amiens.",
+        "moreAbout": "Le Festival des Hortillonnages se déroule au cœur des hortillonnages d'Amiens, offrant une expérience musicale unique au milieu de la nature. Il propose une programmation variée allant du jazz à la chanson française en passant par le rock.",
+        "artists": [
+            "Ibrahim Maalouf",
+            "Brigitte",
+            "La Rue Kétanou",
+            "Yael Naim",
+            "HK & les Saltimbanks",
+            "Féfé",
+            "Pomme",
+            "Delgres",
+            "Clara Luciani",
+            "Gaël Faye"
+        ],
+        "pictures": [],
+        "styles": [
+            "Jazz",
+            "Chanson française",
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Hortillonnages d'Amiens",
+            "city": "Amiens",
+            "longitude": "2.2852",
+            "latitude": "49.8875"
+        }
+    },
+    {
+        "name": "Festival Pamparina",
+        "start": "10/08/2024",
+        "end": "12/08/2024",
+        "averageParticipant": 8000,
+        "description": "Le Festival Pamparina est un festival de musique du monde se tenant à Saint-Amand-les-Eaux.",
+        "moreAbout": "Le Festival Pamparina propose une immersion dans les cultures du monde à travers la musique, la danse et les arts. Il met en avant des artistes venus des quatre coins du globe, dans un cadre festif et convivial.",
+        "artists": [
+            "Che Sudaka",
+            "La Yegros",
+            "Tal National",
+            "Delgres",
+            "Sidi Wacho",
+            "Flavia Coelho",
+            "L'Entourloop",
+            "Nomade Orquestra",
+            "Lila Downs",
+            "La Caravane Passe"
+        ],
+        "pictures": [],
+        "styles": [
+            "Musique du monde"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Base de loisirs du Chabaud-Latour",
+            "city": "Saint-Amand-les-Eaux",
+            "longitude": "3.4323",
+            "latitude": "50.4461"
+        }
+    },
+    {
+        "name": "Festival Le Rock dans tous ses États",
+        "start": "28/06/2024",
+        "end": "29/06/2024",
+        "averageParticipant": 20000,
+        "description": "Le Festival Le Rock dans tous ses États est un festival de musique rock se tenant à Évreux.",
+        "moreAbout": "Le Festival Le Rock dans tous ses États propose une immersion dans l'univers du rock à travers une programmation éclectique. Il se déroule dans un cadre verdoyant, au cœur du parc du château de Beaumesnil.",
+        "artists": [
+            "Marilyn Manson",
+            "Pixies",
+            "Les Wampas",
+            "Last Train",
+            "Fontaines D.C.",
+            "Lysistrata",
+            "La Femme",
+            "The Murder Capital"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Parc du château de Beaumesnil",
+            "city": "Évreux",
+            "longitude": "0.8969",
+            "latitude": "49.1012"
+        }
+    },
+    {
+        "name": "Festival La Bonne Aventure",
+        "start": "19/07/2024",
+        "end": "20/07/2024",
+        "averageParticipant": 12000,
+        "description": "Le Festival La Bonne Aventure est un festival de musique indie et pop se tenant à Dunkerque.",
+        "moreAbout": "Le Festival La Bonne Aventure propose une programmation éclectique et intimiste, mettant en avant des artistes émergents et des découvertes musicales. Il se déroule sur la plage de Malo-les-Bains, offrant une atmosphère estivale et conviviale.",
+        "artists": [
+            "Angus and Julia Stone",
+            "L'Impératrice",
+            "La Femme",
+            "Clara Luciani",
+            "Gaël Faye",
+            "Hervé",
+            "Dampa",
+            "Altin Gün",
+            "Alice et Moi",
+            "Oktober Lieber"
+        ],
+        "pictures": [],
+        "styles": [
+            "Indie",
+            "Pop"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Plage de Malo-les-Bains",
+            "city": "Dunkerque",
+            "longitude": "2.4090",
+            "latitude": "51.0382"
+        }
+    },
+    {
+        "name": "Festival Les Paradis Artificiels",
+        "start": "21/03/2024",
+        "end": "24/03/2024",
+        "averageParticipant": 10000,
+        "description": "Le Festival Les Paradis Artificiels est un festival de musique électronique se tenant à Lille.",
+        "moreAbout": "Le Festival Les Paradis Artificiels est un événement majeur de la scène électronique dans les Hauts-de-France. Il propose une programmation pointue et avant-gardiste, mettant en avant les tendances actuelles de la musique électronique.",
+        "artists": [
+            "Nina Kraviz",
+            "Rone",
+            "Peggy Gou",
+            "Dixon",
+            "Bicep",
+            "Paul Kalkbrenner",
+            "Jon Hopkins",
+            "Amelie Lens",
+            "Maceo Plex",
+            "Charlotte de Witte"
+        ],
+        "pictures": [],
+        "styles": [
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Lille",
+            "city": "Lille",
+            "longitude": "3.0573",
+            "latitude": "50.6292"
+        }
+    },
+    {
+        "name": "Festival Les Pluralies de Longuenesse",
+        "start": "02/07/2024",
+        "end": "07/07/2024",
+        "averageParticipant": 8000,
+        "description": "Le Festival Les Pluralies de Longuenesse est un festival de musique éclectique se tenant à Longuenesse.",
+        "moreAbout": "Le Festival Les Pluralies de Longuenesse propose une programmation variée allant du jazz à la chanson française en passant par le rock et les musiques du monde. Il se déroule dans un cadre convivial, au cœur de la ville de Longuenesse.",
+        "artists": [
+            "Ibrahim Maalouf",
+            "Tryo",
+            "Fatoumata Diawara",
+            "Les Négresses Vertes",
+            "Féfé",
+            "Gauvain Sers",
+            "Les Innocents",
+            "R.Wan",
+            "La Rue Kétanou",
+            "Winston McAnuff"
+        ],
+        "pictures": [],
+        "styles": [
+            "Jazz",
+            "Chanson française",
+            "Rock",
+            "Musique du monde"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Place de la Gare",
+            "city": "Longuenesse",
+            "longitude": "2.2675",
+            "latitude": "50.7124"
+        }
+    },
+    {
+        "name": "Festival Les Inouïes",
+        "start": "14/06/2024",
+        "end": "16/06/2024",
+        "averageParticipant": 6000,
+        "description": "Le Festival Les Inouïes est un festival de musique émergente se tenant à Amiens.",
+        "moreAbout": "Le Festival Les Inouïes met en avant les jeunes talents de la scène musicale émergente. Il propose une programmation diversifiée, permettant de découvrir les nouveaux sonorités et les artistes de demain, dans différents lieux culturels d'Amiens.",
+        "artists": [
+            "Alaena",
+            "Antoine Elie",
+            "Claire Laffut",
+            "Eliasse",
+            "Bleu Toucan",
+            "Mell",
+            "Thom Donovan",
+            "Kompromat",
+            "Flore Benguigui",
+            "Sages comme des sauvages"
+        ],
+        "pictures": [],
+        "styles": [
+            "Divers"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Amiens",
+            "city": "Amiens",
+            "longitude": "2.2934",
+            "latitude": "49.8941"
+        }
+    },
+    {
+        "name": "Festival Le Grand Mix",
+        "start": "14/09/2024",
+        "end": "16/09/2024",
+        "averageParticipant": 15000,
+        "description": "Le Festival Le Grand Mix est un festival de musique électronique se tenant à Tourcoing.",
+        "moreAbout": "Le Festival Le Grand Mix est un événement incontournable de la scène électronique dans les Hauts-de-France. Il propose une programmation pointue et éclectique, mettant en avant les tendances actuelles de la musique électronique.",
+        "artists": [
+            "Jamie xx",
+            "Aphex Twin",
+            "Peggy Gou",
+            "Floating Points",
+            "Four Tet",
+            "Nina Kraviz",
+            "Jon Hopkins",
+            "The Black Madonna",
+            "Amelie Lens",
+            "Modeselektor"
+        ],
+        "pictures": [],
+        "styles": [
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Le Grand Mix",
+            "city": "Tourcoing",
+            "longitude": "3.1636",
+            "latitude": "50.7213"
+        }
+    },
+    {
+        "name": "Festival Les Enchanteurs",
+        "start": "05/04/2024",
+        "end": "20/04/2024",
+        "averageParticipant": 10000,
+        "description": "Le Festival Les Enchanteurs est un festival de chanson française se tenant dans différentes villes des Hauts-de-France.",
+        "moreAbout": "Le Festival Les Enchanteurs célèbre la diversité de la chanson française en proposant une programmation riche et éclectique. Il se déroule dans des lieux conviviaux et intimistes, offrant une expérience musicale unique.",
+        "artists": [
+            "Alain Souchon",
+            "Véronique Sanson",
+            "Benjamin Biolay",
+            "Juliette Armanet",
+            "Clara Luciani",
+            "Jeanne Cherhal",
+            "Eddy de Pretto",
+            "Barbara Pravi",
+            "Lomepal",
+            "Pomme"
+        ],
+        "pictures": [],
+        "styles": [
+            "Chanson française"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différentes villes des Hauts-de-France",
+            "city": "Hauts-de-France",
+            "longitude": "2.8167",
+            "latitude": "50.5280"
+        }
+    },
+    {
+        "name": "Festival Les Agités du Local",
+        "start": "29/08/2024",
+        "end": "01/09/2024",
+        "averageParticipant": 8000,
+        "description": "Le Festival Les Agités du Local est un festival de musique alternative et locale se tenant à Lille.",
+        "moreAbout": "Le Festival Les Agités du Local met en avant les talents émergents de la scène musicale lilloise et régionale. Il propose une programmation éclectique et conviviale, dans différents lieux emblématiques de la ville.",
+        "artists": [],
+        "pictures": [],
+        "styles": [
+            "Alternative",
+            "Indépendant"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Lille",
+            "city": "Lille",
+            "longitude": "3.0573",
+            "latitude": "50.6292"
+        }
+    },
+    {
+        "name": "Festival des Paradis Artificiels",
+        "start": "23/03/2024",
+        "end": "25/03/2024",
+        "averageParticipant": 12000,
+        "description": "Le Festival des Paradis Artificiels est un festival de musique électronique se tenant à Lille.",
+        "moreAbout": "Le Festival des Paradis Artificiels propose une immersion dans l'univers de la musique électronique à travers une programmation pointue et innovante. Il se déroule dans des lieux insolites de la ville, offrant une expérience unique aux festivaliers.",
+        "artists": [
+            "Paul Kalkbrenner",
+            "Charlotte de Witte",
+            "Kraftwerk",
+            "Richie Hawtin",
+            "Nina Kraviz",
+            "Amelie Lens",
+            "Carl Cox",
+            "Peggy Gou",
+            "Jon Hopkins",
+            "Modeselektor"
+        ],
+        "pictures": [],
+        "styles": [
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Lille",
+            "city": "Lille",
+            "longitude": "3.0573",
+            "latitude": "50.6292"
+        }
+    },
+    {
+        "name": "Festival Rock en Stock",
+        "start": "02/08/2024",
+        "end": "05/08/2024",
+        "averageParticipant": 15000,
+        "description": "Le Festival Rock en Stock est un festival de musique rock se tenant à Étaples-sur-Mer.",
+        "moreAbout": "Le Festival Rock en Stock propose une immersion dans l'univers du rock à travers une programmation diversifiée. Il se déroule dans un cadre convivial, en bord de mer, offrant une ambiance festive et décontractée.",
+        "artists": [
+            "Deep Purple",
+            "Scorpions",
+            "The Hives",
+            "The Offspring",
+            "Sum 41",
+            "Black Rebel Motorcycle Club",
+            "The Subways",
+            "Skunk Anansie",
+            "Eagles of Death Metal",
+            "The Dead Daisies"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Place du Général de Gaulle",
+            "city": "Étaples-sur-Mer",
+            "longitude": "1.6313",
+            "latitude": "50.5206"
+        }
+    },
+    {
+        "name": "Festival Les Mouillotins",
+        "start": "19/07/2024",
+        "end": "21/07/2024",
+        "averageParticipant": 10000,
+        "description": "Le Festival Les Mouillotins est un festival de musique éclectique se tenant à Mouilleron-en-Pareds.",
+        "moreAbout": "Le Festival Les Mouillotins propose une programmation variée mettant en avant différents styles musicaux. Il se déroule dans un cadre champêtre, offrant une ambiance conviviale et familiale.",
+        "artists": [],
+        "pictures": [],
+        "styles": [
+            "Éclectique"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Place du Champ de Foire",
+            "city": "Mouilleron-en-Pareds",
+            "longitude": "-0.8983",
+            "latitude": "46.7219"
+        }
+    },
+    {
+        "name": "Festival Les P'tites Folies",
+        "start": "07/06/2024",
+        "end": "09/06/2024",
+        "averageParticipant": 8000,
+        "description": "Le Festival Les P'tites Folies est un festival de musique alternative se tenant à Amiens.",
+        "moreAbout": "Le Festival Les P'tites Folies propose une programmation éclectique mettant en avant les musiques alternatives et émergentes. Il se déroule dans différents lieux culturels d'Amiens, offrant une expérience musicale immersive.",
+        "artists": [],
+        "pictures": [],
+        "styles": [
+            "Alternative"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Amiens",
+            "city": "Amiens",
+            "longitude": "2.2986",
+            "latitude": "49.8941"
+        }
+    },
+    {
+        "name": "Festival Les Plumes de Brume",
+        "start": "16/08/2024",
+        "end": "18/08/2024",
+        "averageParticipant": 6000,
+        "description": "Le Festival Les Plumes de Brume est un festival de musique folk et traditionnelle se tenant à Saint-Quentin.",
+        "moreAbout": "Le Festival Les Plumes de Brume célèbre les musiques folkloriques et traditionnelles à travers une programmation authentique et variée. Il se déroule dans un cadre pittoresque, au cœur de la ville de Saint-Quentin.",
+        "artists": [],
+        "pictures": [],
+        "styles": [
+            "Folk",
+            "Traditionnelle"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Jardin des Champs-Élysées",
+            "city": "Saint-Quentin",
+            "longitude": "3.2674",
+            "latitude": "49.8492"
+        }
+    },
+    {
+        "name": "Festival Les Brasseurs de Son",
+        "start": "14/06/2024",
+        "end": "16/06/2024",
+        "averageParticipant": 7000,
+        "description": "Le Festival Les Brasseurs de Son est un festival de musique brass band se tenant à Valenciennes.",
+        "moreAbout": "Le Festival Les Brasseurs de Son met à l'honneur les fanfares et les brass bands à travers une programmation festive et dynamique. Il se déroule dans différents quartiers de Valenciennes, offrant une ambiance joyeuse et conviviale.",
+        "artists": [],
+        "pictures": [],
+        "styles": [
+            "Brass Band"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents quartiers à Valenciennes",
+            "city": "Valenciennes",
+            "longitude": "3.5259",
+            "latitude": "50.3566"
+        }
+    },
+    {
+        "name": "Festival Les Rives Électroniques",
+        "start": "05/07/2024",
+        "end": "07/07/2024",
+        "averageParticipant": 8000,
+        "description": "Le Festival Les Rives Électroniques est un festival de musique électronique se tenant à Cambrai.",
+        "moreAbout": "Le Festival Les Rives Électroniques propose une immersion dans l'univers de la musique électronique à travers une programmation pointue et variée. Il se déroule au bord de l'eau, offrant une expérience musicale unique.",
+        "artists": [],
+        "pictures": [],
+        "styles": [
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Quai de l'Escaut",
+            "city": "Cambrai",
+            "longitude": "3.2339",
+            "latitude": "50.1707"
+        }
+    },
+    {
+        "name": "Festival Les Voix du Vent",
+        "start": "12/07/2024",
+        "end": "14/07/2024",
+        "averageParticipant": 6000,
+        "description": "Le Festival Les Voix du Vent est un festival de musique du monde se tenant à Berck-sur-Mer.",
+        "moreAbout": "Le Festival Les Voix du Vent propose une immersion dans les musiques du monde à travers une programmation riche et variée. Il se déroule sur la plage de Berck-sur-Mer, offrant une ambiance estivale et chaleureuse.",
+        "artists": [],
+        "pictures": [],
+        "styles": [
+            "Musique du monde"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Plage de Berck-sur-Mer",
+            "city": "Berck-sur-Mer",
+            "longitude": "1.5783",
+            "latitude": "50.4115"
+        }
+    },
+    {
+        "name": "Festival Les Vents du Nord",
+        "start": "28/06/2024",
+        "end": "30/06/2024",
+        "averageParticipant": 7000,
+        "description": "Le Festival Les Vents du Nord est un festival de musique folk et traditionnelle se tenant à Calais.",
+        "moreAbout": "Le Festival Les Vents du Nord célèbre les musiques folkloriques et traditionnelles à travers une programmation authentique et festive. Il se déroule dans différents espaces culturels de Calais, offrant une expérience musicale conviviale.",
+        "artists": [],
+        "pictures": [],
+        "styles": [
+            "Folk",
+            "Traditionnelle"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Calais",
+            "city": "Calais",
+            "longitude": "1.8587",
+            "latitude": "50.9513"
+        }
+    },
+    {
+        "name": "Festival Les Sons du Terroir",
+        "start": "19/07/2024",
+        "end": "21/07/2024",
+        "averageParticipant": 8000,
+        "description": "Le Festival Les Sons du Terroir est un festival de musique folk et jazz se tenant à Saint-Omer.",
+        "moreAbout": "Le Festival Les Sons du Terroir propose une programmation éclectique mettant en valeur les musiques du terroir et les influences jazz. Il se déroule dans des lieux emblématiques de Saint-Omer, offrant une ambiance festive et conviviale.",
+        "artists": [],
+        "pictures": [],
+        "styles": [
+            "Folk",
+            "Jazz"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Saint-Omer",
+            "city": "Saint-Omer",
+            "longitude": "2.2617",
+            "latitude": "50.7536"
+        }
+    },
+    {
+        "name": "Festival Les Voix du Nord",
+        "start": "21/06/2024",
+        "end": "23/06/2024",
+        "averageParticipant": 10000,
+        "description": "Le Festival Les Voix du Nord est un festival de musique vocal se tenant à Lille.",
+        "moreAbout": "Le Festival Les Voix du Nord met en avant la diversité des voix à travers une programmation éclectique. Il propose des concerts de chorales, d'ensembles vocaux et d'artistes solo dans différents lieux emblématiques de Lille.",
+        "artists": [],
+        "pictures": [],
+        "styles": [
+            "Vocal"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Différents lieux à Lille",
+            "city": "Lille",
+            "longitude": "3.0573",
+            "latitude": "50.6292"
+        }
+    },
+    {
+        "name": "Les Eurockéennes de Belfort",
+        "start": "29/06/2024",
+        "end": "02/07/2024",
+        "averageParticipant": 45000,
+        "description": "Les Eurockéennes de Belfort sont un festival de musique rock se tenant sur la presqu'île du Malsaucy à Évette-Salbert près de Belfort.",
+        "moreAbout": "Les Eurockéennes de Belfort sont l'un des festivals de musique les plus importants de France, proposant une programmation axée principalement sur le rock, mais aussi sur d'autres styles musicaux. Son cadre naturel exceptionnel attire des milliers de festivaliers chaque année.",
+        "artists": [
+            "Foo Fighters",
+            "Arctic Monkeys",
+            "Tame Impala",
+            "Lorde",
+            "Tyler, the Creator",
+            "Disclosure",
+            "The Chemical Brothers",
+            "SOPHIE",
+            "Franz Ferdinand",
+            "Møme"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock",
+            "Indie",
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Presqu'île du Malsaucy",
+            "city": "Évette-Salbert",
+            "longitude": "6.9003",
+            "latitude": "47.6606"
+        }
+    },
+    {
+        "name": "La Nuit de l'Erdre",
+        "start": "29/06/2024",
+        "end": "01/07/2024",
+        "averageParticipant": 30000,
+        "description": "La Nuit de l'Erdre est un festival de musique se déroulant le long de la rivière Erdre à Nort-sur-Erdre en Loire-Atlantique.",
+        "moreAbout": "La Nuit de l'Erdre propose une programmation éclectique avec des artistes de divers genres musicaux, allant du rock à la chanson en passant par l'électro. Son ambiance conviviale en bord de rivière en fait un événement apprécié.",
+        "artists": [
+            "Saez",
+            "Shaka Ponk",
+            "Mika",
+            "Hoshi",
+            "Therapie Taxi",
+            "Tiken Jah Fakoly",
+            "Bigflo & Oli",
+            "Catherine Ringer",
+            "Groundation",
+            "Columbine"
+        ],
+        "pictures": [],
+        "styles": [
+            "Rock",
+            "Chanson française",
+            "Reggae",
+            "Électro"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Bord de l'Erdre",
+            "city": "Nort-sur-Erdre",
+            "longitude": "-1.4413",
+            "latitude": "47.4429"
+        }
+    },
+    {
+        "name": "Festival Jazz à Vienne",
+        "start": "28/06/2024",
+        "end": "13/07/2024",
+        "averageParticipant": 20000,
+        "description": "Le Festival Jazz à Vienne est un festival de musique jazz se déroulant à Vienne dans le département de l'Isère.",
+        "moreAbout": "Le Festival Jazz à Vienne est l'un des plus grands festivals de jazz d'Europe. Il propose une programmation variée avec des artistes de renommée internationale ainsi que des découvertes de la scène jazz contemporaine.",
+        "artists": [
+            "Herbie Hancock",
+            "Diana Krall",
+            "Marcus Miller",
+            "Norah Jones",
+            "Jamie Cullum",
+            "Ibrahim Maalouf",
+            "Chick Corea",
+            "Kamasi Washington",
+            "Melody Gardot",
+            "Gregory Porter"
+        ],
+        "pictures": [],
+        "styles": [
+            "Jazz",
+            "Blues"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Théâtre Antique de Vienne",
+            "city": "Vienne",
+            "longitude": "4.8786",
+            "latitude": "45.5285"
+        }
+    },
+    {
+        "name": "Festival Papillons de Nuit",
+        "start": "25/05/2024",
+        "end": "27/05/2024",
+        "averageParticipant": 30000,
+        "description": "Le Festival Papillons de Nuit est un festival de musique se tenant à Saint-Laurent-de-Cuves dans la Manche.",
+        "moreAbout": "Le Festival Papillons de Nuit propose une programmation éclectique, mêlant des artistes de renommée nationale et des talents émergents. Son ambiance conviviale en fait un événement apprécié des festivaliers.",
+        "artists": [
+            "Julien Doré",
+            "Soprano",
+            "Lomepal",
+            "Tryo",
+            "Vianney",
+            "Orelsan",
+            "Jean-Louis Aubert",
+            "Les Cowboys Fringants",
+            "Columbine",
+            "Dadju"
+        ],
+        "pictures": [],
+        "styles": [
+            "Pop",
+            "Rap",
+            "Rock"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Parc du Champ de Foire",
+            "city": "Saint-Laurent-de-Cuves",
+            "longitude": "-1.1167",
+            "latitude": "48.7333"
+        }
+    },
+    {
+        "name": "Festival La Route du Rock",
+        "start": "10/08/2024",
+        "end": "13/08/2024",
+        "averageParticipant": 15000,
+        "description": "La Route du Rock est un festival de musique indie se tenant à Saint-Malo en Bretagne.",
+        "moreAbout": "La Route du Rock est un festival emblématique de la scène indie en France. Il propose une programmation pointue et éclectique, mettant en avant des artistes émergents ainsi que des figures emblématiques de la musique indie et alternative.",
+        "artists": [
+            "Björk",
+            "Bon Iver",
+            "The xx",
+            "Tame Impala",
+            "King Krule",
+            "The War on Drugs",
+            "Beach House",
+            "Mac DeMarco",
+            "Grizzly Bear",
+            "PJ Harvey"
+        ],
+        "pictures": [],
+        "styles": [
+            "Indie",
+            "Alternative"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Fort de Saint-Père",
+            "city": "Saint-Malo",
+            "longitude": "-2.0170",
+            "latitude": "48.6337"
+        }
+    },
+    {
+        "name": "Festival des Musiques d'Ici et d'Ailleurs",
+        "start": "10/07/2024",
+        "end": "15/07/2024",
+        "averageParticipant": 20000,
+        "description": "Le Festival des Musiques d'Ici et d'Ailleurs est un festival de musiques du monde se tenant à Chalon-sur-Saône en Bourgogne-Franche-Comté.",
+        "moreAbout": "Le Festival des Musiques d'Ici et d'Ailleurs propose une programmation riche et variée, mettant en avant des artistes venant des quatre coins du monde. Il célèbre la diversité culturelle à travers la musique.",
+        "artists": [
+            "Tinariwen",
+            "Fatoumata Diawara",
+            "La Yegros",
+            "Bombino",
+            "Delgres",
+            "Yasmine Hamdan",
+            "Les Amazones d'Afrique",
+            "Mayra Andrade",
+            "Gipsy Kings",
+            "A-Wa"
+        ],
+        "pictures": [],
+        "styles": [
+            "Musiques du monde"
+        ],
+        "nbLikes": [],
+        "adress": {
+            "place": "Parc des expositions de Chalon-sur-Saône",
+            "city": "Chalon-sur-Saône",
+            "longitude": "4.8457",
+            "latitude": "46.7883"
+        }
+    }
+]
