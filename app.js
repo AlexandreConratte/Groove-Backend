@@ -28,6 +28,6 @@ app.use('/users', usersRouter);
 app.use('/festivals', festivalsRouter);
 app.use('/artists', artistsRouter);
 app.use('/groups', groupsRouter);
-app.use('/styles', stylesRouter);
+app.use('/styles', stylesRouter); 
 
 module.exports = app;
