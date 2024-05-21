@@ -103,18 +103,18 @@ router.get('/search', async (req,res) => {
     const filter = {};
 
     if (start && end) {
-      filter.start = { $gte: new Date(start) };
-      filter.end = { $lte: new Date(end) };
+      filter.start = { $gte: start };
+      filter.end = { $lte: end };
     } else if (start) {
-        filter.start = { $gte: new Date(start) };
+        filter.start = { $gte: start }; // expected "start": "2024-07-16T22:00:00.000+00:00" 
     } else if (end) {
-        filter.end = { $lte: new Date(end) };
+        filter.end = { $lte: end };
     }
 
     const promises = [];
     
     if (style && style.length > 0) {
-      const styleIds = Style.find({ name: { $in: style } }).select('_id').exec();
+      const styleIds = Style.find({ name: { $in: style } }).select('_id').exec(); //expected "style": ["Metal","Rock"]
       promises.push(styleIds.then(data => {
         const styleIdsArray = data.map(s => s._id);
         filter.styles = { $in: styleIdsArray };
@@ -122,7 +122,7 @@ router.get('/search', async (req,res) => {
     }
 
     if (artists && artists.length > 0) {
-      const artistIds = Artist.find({ name: { $in: artists } }).select('_id').exec();
+      const artistIds = Artist.find({ name: { $in: artists } }).select('_id').exec(); //expected "artists": ["Angèle"]
       promises.push(artistIds.then(data => {
         const artistIdsArray = data.map(a => a._id);
         filter.artists = { $in: artistIdsArray };
@@ -172,7 +172,6 @@ router.get('/search', async (req,res) => {
       }
     }
     )
-    
 })
 
 
