@@ -9,6 +9,7 @@ const Artist = require('../models/artists')
 /* GET home page. */
 router.get('/findAll', function (req, res) {
   Festival.find()
+    .populate('artists')
     .then(data => (res.json({ result: true, festivals: data })))
 });
 
