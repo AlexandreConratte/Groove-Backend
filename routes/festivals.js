@@ -96,7 +96,7 @@ const haversineDistance = (coords1, coords2) => {
 };
 
 //route pour cherche les fetivals en fonction des critères
-router.get('/search', async (req, res) => {
+router.post('/search', async (req, res) => {
 
   const { start, end, cityLongitude, cityLatitude, maxKm, style, artists, averageParticipant } = req.body;
 
