@@ -18,7 +18,7 @@ router.post('/signup', (req, res) => {
     res.json({ result: false, error: 'Missing or empty fields' });
     return;
   }
-  User.findOne({ username: req.body.username }).then(data => {
+  User.findOne({ username: req.body.username , email : req.body.email}).then(data => {
     if (data === null) {
       const hash = bcrypt.hashSync(req.body.password, 10);
     
@@ -28,9 +28,7 @@ router.post('/signup', (req, res) => {
         email: req.body.email,
         password: hash,
         token: uid2(32),
-
-      };
-      
+      };   
          /* création d'une const optional, qui va chercher la présence ou non des champs optionnels, et les ajouter à userObligate*/   
       const optionalFields = ['firstname', 'lastname', 'birthdate', 'city', 'styles', 'artists', 'friends', 'likedFestivals', 'memoriesFestivals', 'picture']
       optionalFields.forEach(field => {
@@ -38,12 +36,13 @@ router.post('/signup', (req, res) => {
           userObligate[field] = req.body[field];
         }  
       });  
+      console.log(userObligate)
 
       /* création du new user avec les champs obligatoires + ceux opitonnels trouvés dans la const userObligate */ 
       const newUser = new User(userObligate);
 
-      newUser.save().then(newDoc => {
-        res.json({ result: true, token: newDoc.token });
+      newUser.save().then(data => {
+        res.json({ result: true, token: data.token });
       });
     } else {
       res.json({ result: false, error: 'User already exists' });
@@ -60,7 +59,7 @@ router.post('/signin', (req, res) => {
 
   User.findOne({ username: req.body.username }).then(data => {
     if (data && bcrypt.compareSync(req.body.password, data.password)) {
-      res.json({ result: true, token: data.token , firstname: data.firstname});
+      res.json({ result: true, username: data.username, token: data.token  });
     } else {
       res.json({ result: false, error: 'User not found or wrong password' });
     }
