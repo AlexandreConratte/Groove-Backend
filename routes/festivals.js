@@ -82,93 +82,93 @@ const haversineDistance = (coords1, coords2) => {
     return x * Math.PI / 180;
   }
 
-  const R = 6371; 
+  const R = 6371;
   const dLat = toRad(coords2.latitude - coords1.latitude);
   const dLon = toRad(coords2.longitude - coords1.longitude);
   const lat1 = toRad(coords1.latitude);
   const lat2 = toRad(coords2.latitude);
 
   const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+    Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
   return R * c;
 };
 
 //route pour cherche les fetivals en fonction des critères
-router.get('/search', async (req,res) => {
+router.post('/search', async (req, res) => {
 
-    const { start, end, cityLongitude, cityLatitude, maxKm, style, artists, averageParticipant } = req.body;
+  const { start, end, cityLongitude, cityLatitude, maxKm, style, artists, averageParticipant } = req.body;
 
-    const filter = {};
+  const filter = {};
 
-    if (start && end) {
-      filter.start = { $gte: start };
-      filter.end = { $lte: end };
-    } else if (start) {
-        filter.start = { $gte: start }; // expected "start": "2024-07-16T22:00:00.000+00:00" 
-    } else if (end) {
-        filter.end = { $lte: end };
+  if (start && end) {
+    filter.start = { $gte: start };
+    filter.end = { $lte: end };
+  } else if (start) {
+    filter.start = { $gte: start }; // expected "start": "2024-07-16T22:00:00.000+00:00" 
+  } else if (end) {
+    filter.end = { $lte: end };
+  }
+
+  const promises = [];
+
+  if (style && style.length > 0) {
+    const styleIds = Style.find({ name: { $in: style } }).select('_id').exec(); //expected "style": ["Metal","Rock"]
+    promises.push(styleIds.then(data => {
+      const styleIdsArray = data.map(s => s._id);
+      filter.styles = { $in: styleIdsArray };
+    }));
+  }
+
+  if (artists && artists.length > 0) {
+    const artistIds = Artist.find({ name: { $in: artists } }).select('_id').exec(); //expected "artists": ["Angèle"]
+    promises.push(artistIds.then(data => {
+      const artistIdsArray = data.map(a => a._id);
+      filter.artists = { $in: artistIdsArray };
+    }));
+  }
+
+  if (averageParticipant) {
+    switch (averageParticipant) {
+      case 'petit':
+        filter.averageParticipant = { $lt: 10_000 };
+        break;
+      case 'moyen':
+        filter.averageParticipant = { $gte: 10_000, $lte: 30_000 };
+        break;
+      case 'grand':
+        filter.averageParticipant = { $gt: 30_000 };
+        break;
+      default:
+        break;
     }
+  }
 
-    const promises = [];
-    
-    if (style && style.length > 0) {
-      const styleIds = Style.find({ name: { $in: style } }).select('_id').exec(); //expected "style": ["Metal","Rock"]
-      promises.push(styleIds.then(data => {
-        const styleIdsArray = data.map(s => s._id);
-        filter.styles = { $in: styleIdsArray };
-      }));
-    }
+  await Promise.all(promises);
 
-    if (artists && artists.length > 0) {
-      const artistIds = Artist.find({ name: { $in: artists } }).select('_id').exec(); //expected "artists": ["Angèle"]
-      promises.push(artistIds.then(data => {
-        const artistIdsArray = data.map(a => a._id);
-        filter.artists = { $in: artistIdsArray };
-      }));
-    }
-
-    if (averageParticipant) {
-      switch (averageParticipant) {
-        case 'Petit < 5k':
-          filter.averageParticipant = { $lt: 5000 };
-          break;
-        case 'Moyen':
-          filter.averageParticipant = { $gte: 5000, $lte: 20000 };
-          break;
-        case 'Grand > 20k':
-          filter.averageParticipant = { $gt: 20000 };
-          break;
-        default:
-          break;
-      }
-    }
-
-    await Promise.all(promises);
-
-    Festival.find(filter).populate('artists').populate('styles')
-    .then (data => {
+  Festival.find(filter).populate('artists').populate('styles')
+    .then(data => {
       if (data.length > 0) {
 
         if (cityLatitude && cityLongitude && maxKm) {
-          const cityCoords = { latitude: cityLatitude, longitude: cityLongitude} ; 
+          const cityCoords = { latitude: cityLatitude, longitude: cityLongitude };
           const filteredFestivals = data.filter(festival => {
             const festivalCoords = { latitude: festival.adress.latitude, longitude: festival.adress.longitude };
             const distance = haversineDistance(cityCoords, festivalCoords);
             return distance <= maxKm;
           })
-          if (filteredFestivals.length != 0){
-            return res.json({result: true, festivals: filteredFestivals});
+          if (filteredFestivals.length != 0) {
+            return res.json({ result: true, festivals: filteredFestivals });
           } else {
-            return res.json({result: false, message: "no festival found in this range"});
+            return res.json({ result: false, message: "no festival found in this range" });
           }
         } else {
-          res.json({result: true, festivals: data})
+          res.json({ result: true, festivals: data })
         }
-        
+
       } else {
-        res.json({result: false, message: 'no results found'})
+        res.json({ result: false, message: 'no results found' })
       }
     }
     )

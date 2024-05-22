@@ -4,9 +4,9 @@ require('../models/connection');
 
 const Artist = require('../models/artists');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/findAll', function (req, res) {
+  Artist.find()
+    .then(data => (res.json({ result: true, artists: data })))
 });
 
 module.exports = router;

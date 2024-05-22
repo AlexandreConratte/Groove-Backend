@@ -4,9 +4,10 @@ require('../models/connection');
 
 const Style = require('../models/styles');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+
+router.get('/findAll', function (req, res) {
+  Style.find()
+    .then(data => (res.json({ result: true, styles: data })))
 });
 
 module.exports = router;
