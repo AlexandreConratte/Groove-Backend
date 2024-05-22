@@ -16,7 +16,7 @@ const festivalSchema = mongoose.Schema({
     moreAbout: String,
     pictures: [String],
     styles: [{ type: mongoose.Schema.Types.ObjectId, ref: 'styles' }],
-    nbLikes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }],
+    nbLikes: [String],
     artists:[{ type: mongoose.Schema.Types.ObjectId, ref: 'artists' }],
     adress: adressSchema,
 });
