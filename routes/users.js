@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 require('../models/connection');
 const User = require('../models/users');
+const Festival =require('../models/festivals');
 const { checkBody } = require('../modules/checkBody');
 const uid2 = require('uid2');
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -66,6 +68,56 @@ router.post('/signin', (req, res) => {
     }
   });
 });
+
+router.post('/likeDislikeFestival', (req,res) => {
+  const { festivalId, token } = req.body;
+
+  User.findOne({ token: token }).then(user => {
+    if (!user) {
+      return res.json({ result: false, error: 'User not found' });
+    } 
+
+    const index = user.likedFestivals.indexOf(festivalId);
+    
+    Festival.findById(festivalId).then(festival => {
+      if (!festival) {
+        return res.json({ result: false, error: 'Festival not found' });
+      }
+
+      if (index === -1) {
+        // Festival pas dans la liste, on l'ajoute
+        user.likedFestivals.push(festivalId);
+        festival.nbLikes.push(token); // Ajoute le token à la nbLike
+      } else {
+        // Festival présent, on le retire
+        user.likedFestivals.splice(index, 1);
+        const tokenIndex = festival.nbLikes.indexOf(token);
+        if (tokenIndex !== -1) {
+          festival.nbLikes.splice(tokenIndex, 1); // Retire le token de nbLike
+        }
+      }
+
+      Promise.all([user.save(), festival.save()]).then(() => {
+        res.json({ result: true, message: 'Update successful', likedFestivals: user.likedFestivals });
+      });
+    });
+
+  })
+})
+
+router.post('/findLiked', (req,res) => {
+  const { token } = req.body;
+
+  User.findOne({ token: token }).populate('likedFestivals')
+  .then(user => {
+    if (!user) {
+      return res.json({ result: false, error: 'User not found' });
+    } 
+
+    res.json({result: true, festivalsLiked: user.likedFestivals})
+
+  })
+})
 
 
 
