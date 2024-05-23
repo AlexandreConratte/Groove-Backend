@@ -144,6 +144,41 @@ router.post('/checkMail', (req, res) => {
 })
 })
 
+router.post('/MemFest', (req,res) => {
+  const { festivalId, token } = req.body;
+    
+  User.findOne({ token: token }).then(user => {
+    if (!user) {
+      return res.json({ result: false, error: 'User not found' });
+    } 
 
+    const index = user.memoriesFestivals.indexOf(festivalId);
+
+    if(index === -1) {
+      user.memoriesFestivals.push(festivalId);
+    } else {
+      user.memoriesFestivals.splice(index, 1);
+    }
+
+    Promise.all([user.save()]).then(() => {
+      res.json({ result: true, message: 'Update successful', memoriesFestivals: user.memoriesFestivals });
+    });
+
+  })
+
+})
+
+router.post('/findMemories', (req,res) => {
+  const { token } = req.body;
+
+  User.findOne({ token: token }).populate('memoriesFestivals')
+  .then(user => {
+    if(!user) {
+      return res.json({ result: false, error: 'User not found' })
+    }
+
+    res.json({ result: true, memoriesFestivals: user.memoriesFestivals})
+  })
+})
 
 module.exports = router;
