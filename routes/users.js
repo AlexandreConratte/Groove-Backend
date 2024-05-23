@@ -139,8 +139,7 @@ router.post('/MemFest', (req,res) => {
     });
 
   })
-
-})
+});
 
 router.post('/findMemories', (req,res) => {
   const { token } = req.body;
@@ -152,6 +151,19 @@ router.post('/findMemories', (req,res) => {
     }
 
     res.json({ result: true, memoriesFestivals: user.memoriesFestivals})
+  })
+});
+
+router.post('/iprofil', (req,res) => {
+  const { token } = req.body
+
+  User.findOne({ token : token }).populate('styles','artists')
+  .then(user => {
+    if(!user) {
+      return res.json({ result: false, error: 'User not found' })
+    }
+
+    res.json({ result: true, user})
   })
 })
 
