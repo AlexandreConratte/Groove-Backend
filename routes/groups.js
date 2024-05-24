@@ -9,6 +9,8 @@ router.post('/findAllByUsername', function (req, res) {
     .then(data => {
       const userId = data.id
       Group.find({ members: userId })
+      .populate('members')
+      .populate('festival')
         .then(data => (res.json({ result: true, groups: data })))
     })
 });
