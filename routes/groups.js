@@ -6,11 +6,13 @@ const Group = require('../models/groups');
 
 router.post('/findAllByUsername', function (req, res) {
   User.findOne({ token: req.body.token })
-    .then(data => {
+    .then((data) => {
       const userId = data.id
       Group.find({ members: userId })
-        .populate('festival')
+        .populate({ path: 'festival', select: 'name' })
         .then((data) => {
+          //result=data.map((e)=>e.festival=e.festival.name)
+          console.log(data)
           res.json({ result: true, groups: data })
         })
     })
