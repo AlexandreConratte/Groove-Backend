@@ -21,7 +21,12 @@ router.get('/findAll', function (req, res) {
 router.post('/getAllFriends', function (req, res) {
   User.find({ token: req.body.token })
   .populate('friends')
-    .then(data => (res.json({ result: true, friends: data.friends })))
+    .then((data) => {
+      const friends = data[0].friends.map((e)=>{
+        return ({username:e.username,city:e.city,picture:e.picture})
+      })
+      res.json({ result: true, friends: friends })
+    })
 });
 
 router.put('/addFriend', function (req, res) {
