@@ -4,7 +4,7 @@ require('../models/connection');
 const User = require('../models/users')
 const Group = require('../models/groups');
 
-router.get('/findAllByUsername', function (req, res) {
+router.post('/findAllByUsername', function (req, res) {
   User.findOne({ token: req.body.token })
     .then(data => {
       const userId = data.id
