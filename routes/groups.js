@@ -1,12 +1,16 @@
 var express = require('express');
 var router = express.Router();
 require('../models/connection');
-
+const User = require('../models/users')
 const Group = require('../models/groups');
 
-router.get('/findAll', function (req, res) {
-  Group.find()
-    .then(data => (res.json({ result: true, groups: data })))
+router.get('/findAllByUsername', function (req, res) {
+  User.findOne({ token: req.body.token })
+    .then(data => {
+      const userId = data.id
+      Group.find({ members: userId })
+        .then(data => (res.json({ result: true, groups: data })))
+    })
 });
 
 router.post('/newGroup', function (req, res) {
@@ -38,6 +42,6 @@ router.put('/newUser', function (req, res) {
 
 router.delete('/deleteGroup', function (req, res) {
   Group.deleteOne({ name: req.body.name })
-  .then(() => res.json({ result: true,message: 'Groupe supprimé'}));
+    .then(() => res.json({ result: true, message: 'Groupe supprimé' }));
 })
 module.exports = router;
