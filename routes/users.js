@@ -13,9 +13,32 @@ const fs = require('fs');
 
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
+router.get('/findAll', function (req, res) {
+  User.find()
+    .then(data => (res.json({ result: true, users: data })))
 });
+
+router.post('/getAllFriends', function (req, res) {
+  User.find({ token: req.body.token })
+  .populate('friends')
+    .then((data) => {
+      const friends = data[0].friends.map((e)=>{
+        return ({username:e.username,city:e.city,picture:e.picture})
+      })
+      res.json({ result: true, friends: friends })
+    })
+});
+
+router.put('/addFriend', function (req, res) {
+  User.findOne({ token: req.body.token })
+    .then(data => {
+      const newFriend = [...data.friends, req.body.user]
+      User.updateOne({ token: req.body.token }, { friends: newFriend })
+        .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
+    })
+})
+
+
 
 const mailregex = /^((?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\]))$/
 
@@ -126,38 +149,38 @@ router.post('/findLiked', (req, res) => {
 router.post('/checkUser', (req, res) => {
   const { username } = req.body;
   User.findOne({ username })
-  .then( data => {
-    if (data) {
-    res.json({ result: true, error: "User déjà existant" }); //verifie qu'il y a un utilisateur, ce qui nous coduit à l'erreur en screen connect2
-  } else {
-    res.json({ result: false });
-  }
-})
+    .then(data => {
+      if (data) {
+        res.json({ result: true, error: "User déjà existant" }); //verifie qu'il y a un utilisateur, ce qui nous coduit à l'erreur en screen connect2
+      } else {
+        res.json({ result: false });
+      }
+    })
 })
 
 router.post('/checkMail', (req, res) => {
   const { email } = req.body;
   User.findOne({ email })
-  .then( data => {
-  if (data) {
-    res.json({ result: true, error: "Mail déjà existant" });
-  } else {
-    res.json({ result: false });
-  }
-})
+    .then(data => {
+      if (data) {
+        res.json({ result: true, error: "Mail déjà existant" });
+      } else {
+        res.json({ result: false });
+      }
+    })
 })
 
-router.post('/MemFest', (req,res) => {
+router.post('/MemFest', (req, res) => {
   const { festivalId, token } = req.body;
-    
+
   User.findOne({ token: token }).then(user => {
     if (!user) {
       return res.json({ result: false, error: 'User not found' });
-    } 
+    }
 
     const index = user.memoriesFestivals.indexOf(festivalId);
 
-    if(index === -1) {
+    if (index === -1) {
       user.memoriesFestivals.push(festivalId);
     } else {
       user.memoriesFestivals.splice(index, 1);
@@ -170,53 +193,80 @@ router.post('/MemFest', (req,res) => {
   })
 });
 
-router.post('/findMemories', (req,res) => {
+router.post('/findMemories', (req, res) => {
   const { token } = req.body;
 
   User.findOne({ token: token }).populate('memoriesFestivals')
-  .then(user => {
-    if(!user) {
-      return res.json({ result: false, error: 'User not found' })
-    }
+    .then(user => {
+      if (!user) {
+        return res.json({ result: false, error: 'User not found' })
+      }
 
-    res.json({ result: true, memoriesFestivals: user.memoriesFestivals})
-  })
+      res.json({ result: true, memoriesFestivals: user.memoriesFestivals })
+    })
 });
 
-router.post('/iprofil', (req,res) => {
+router.post('/iprofil', (req, res) => {
   const { token } = req.body
 
-  User.findOne({ token : token })
-  .select('-_id -password -token -friends -likedFestivals -memoriesFestivals')
-  .populate('styles').populate('artists')
-  .then(user => {
-    if(!user) {
-      return res.json({ result: false, error: 'User not found' })
-    }
+  User.findOne({ token: token })
+    .select('-_id -password -token -friends -likedFestivals -memoriesFestivals') // pour retires les champs dont on a pas besoin
+    .populate('styles').populate('artists')
+    .then(user => {
+      if (!user) {
+        return res.json({ result: false, error: 'User not found' })
+      }
 
-    res.json({ result: true, user})
-  })
+      res.json({ result: true, user })
+    })
 })
 
- router.post('/photo', async (req, res) => {
+router.post('/photo', async (req, res) => {
   const photoPath = `./tmp/${uniqid()}.jpg`;
   const resultMove = await req.files.photoFromFront.mv(photoPath);
 
   if (!resultMove) {
-      const resultCloudinary = await cloudinary.uploader.upload(photoPath);
+    const resultCloudinary = await cloudinary.uploader.upload(photoPath);
 
-      fs.unlinkSync(photoPath);
+    fs.unlinkSync(photoPath);
 
-      res.json({ result: true, url: resultCloudinary.secure_url });
+    res.json({ result: true, url: resultCloudinary.secure_url });
   }
 
   else {
-      res.json({ result: false, error: resultMove });
+    res.json({ result: false, error: resultMove });
   }
- 
+
 });
-router.put('/update', (req,res) => {
-  
+
+router.put('/update', (req, res) => {
+  const { token, username, email, firstname, lastname, phone, city, styles, artists } = req.body;
+
+  let updatedFields = {};
+  if (username) updatedFields.username = username;
+  if (email) updatedFields.email = email;
+  if (firstname) updatedFields.firstname = firstname;
+  if (lastname) updatedFields.lastname = lastname;
+  if (phone) updatedFields.phone = phone;
+  if (city) updatedFields.city = city;
+  if (styles) updatedFields.styles = styles; // 
+  if (artists) updatedFields.artists = artists;
+
+  User.findOneAndUpdate(
+    { token: token },
+    { $set: updatedFields },
+    { new: true } // pour retourner le document mis à jour et non le document avant màj 
+  ).select('-_id -password -token -friends -likedFestivals -memoriesFestivals')
+    .populate('styles')
+    .populate('artists')
+    .then(user => {
+      if (!user) {
+        return res.json({ result: false, error: 'User not found' });
+      }
+
+      res.json({ result: true, user });
+    })
+
 })
 
 module.exports = router;
