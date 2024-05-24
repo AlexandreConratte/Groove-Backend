@@ -227,6 +227,7 @@ router.post('/photo', async (req, res) => {
 
   if (!resultMove) {
     const resultCloudinary = await cloudinary.uploader.upload(photoPath);
+    console.log("result cloudinary back", resultCloudinary)
 
     fs.unlinkSync(photoPath);
 
