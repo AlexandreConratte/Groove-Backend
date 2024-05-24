@@ -187,7 +187,7 @@ router.post('/iprofil', (req,res) => {
   const { token } = req.body
 
   User.findOne({ token : token })
-  .select('-_id -password -token -friends -likedFestivals -memoriesFestivals')
+  .select('-_id -password -token -friends -likedFestivals -memoriesFestivals') // pour retires les champs dont on a pas besoin
   .populate('styles').populate('artists')
   .then(user => {
     if(!user) {
@@ -215,8 +215,35 @@ router.post('/iprofil', (req,res) => {
   }
  
 });
+
 router.put('/update', (req,res) => {
-  
+  const { token, username, email, firstname, lastname, phone, city, styles, artists } = req.body;
+
+  let updatedFields = {};
+  if (username) updatedFields.username = username;
+  if (email) updatedFields.email = email;
+  if (firstname) updatedFields.firstname = firstname;
+  if (lastname) updatedFields.lastname = lastname;
+  if (phone) updatedFields.phone = phone;
+  if (city) updatedFields.city = city;
+  if (styles) updatedFields.styles = styles; // 
+  if (artists) updatedFields.artists = artists;
+
+  User.findOneAndUpdate(
+    { token: token },
+    { $set: updatedFields },
+    { new: true } // pour retourner le document mis à jour et non le document avant màj 
+  ).select('-_id -password -token -friends -likedFestivals -memoriesFestivals')
+  .populate('styles')
+  .populate('artists')
+  .then(user => {
+    if (!user) {
+      return res.json({ result: false, error: 'User not found' });
+    }
+
+    res.json({ result: true, user });
+  })
+
 })
 
 module.exports = router;
