@@ -183,14 +183,20 @@ router.post('/findMemories', (req,res) => {
 router.post('/iprofil', (req,res) => {
   const { token } = req.body
 
-  User.findOne({ token : token }).populate('styles').populate('artists')
+  User.findOne({ token : token })
+  .select('-_id -password -token -friends -likedFestivals -memoriesFestivals')
+  .populate('styles').populate('artists')
   .then(user => {
     if(!user) {
       return res.json({ result: false, error: 'User not found' })
     }
 
-    res.json({ result: true, username: user.username, picture: user.picture, lastname: user.lastname, firstname: user.firstname, email: user.email, city: user.city, birthdate: user.birthdate, artists: user.artists, styles: user.styles})
+    res.json({ result: true, user})
   })
+})
+
+router.put('/update', (req,res) => {
+  
 })
 
 module.exports = router;
