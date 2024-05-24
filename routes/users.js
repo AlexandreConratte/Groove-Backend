@@ -220,6 +220,13 @@ router.post('/iprofil', (req, res) => {
       res.json({ result: true, user })
     })
 })
+router.post('/test', async (req, res) => {
+  const photoPath = `./tmp/${uniqid()}.jpg`;
+  const resultMove = await req.files.photoFromFront.mv(photoPath);
+  res.json({ photoPath, resultMove})
+})
+
+
 
 router.post('/photo', async (req, res) => {
   const photoPath = `./tmp/${uniqid()}.jpg`;
