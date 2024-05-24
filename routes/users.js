@@ -20,7 +20,8 @@ router.get('/findAll', function (req, res) {
 
 router.post('/getAllFriends', function (req, res) {
   User.find({ token: req.body.token })
-    .then(data => (res.json({ result: true, friends: data })))
+  .populate('friends')
+    .then(data => (res.json({ result: true, friends: data.friends })))
 });
 
 router.put('/addFriend', function (req, res) {
