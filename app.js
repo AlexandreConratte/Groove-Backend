@@ -15,7 +15,11 @@ var stylesRouter = require('./routes/styles');
 var app = express();
 
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
+
 app.use(cors());
+app.use(fileUpload());
+
 
 app.use(logger('dev'));
 app.use(express.json());

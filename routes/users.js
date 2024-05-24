@@ -7,6 +7,9 @@ const { checkBody } = require('../modules/checkBody');
 const uid2 = require('uid2');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+const uniqid = require('uniqid');
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs');
 
 
 /* GET users listing. */
@@ -33,7 +36,7 @@ router.post('/signup', (req, res) => {
         token: uid2(32),
       };
       /* création d'une const optional, qui va chercher la présence ou non des champs optionnels, et les ajouter à userObligate*/
-      const optionalFields = ['firstname', 'lastname', 'birthdate', 'city', 'styles', 'artists', 'friends', 'likedFestivals', 'memoriesFestivals', 'picture']
+      const optionalFields = ['phone', 'firstname', 'lastname', 'birthdate', 'city', 'styles', 'artists', 'friends', 'likedFestivals', 'memoriesFestivals', 'picture']
       optionalFields.forEach(field => {
         if (req.body[field]) {
           userObligate[field] = req.body[field];
@@ -183,14 +186,37 @@ router.post('/findMemories', (req,res) => {
 router.post('/iprofil', (req,res) => {
   const { token } = req.body
 
-  User.findOne({ token : token }).populate('styles').populate('artists')
+  User.findOne({ token : token })
+  .select('-_id -password -token -friends -likedFestivals -memoriesFestivals')
+  .populate('styles').populate('artists')
   .then(user => {
     if(!user) {
       return res.json({ result: false, error: 'User not found' })
     }
 
-    res.json({ result: true, username: user.username, picture: user.picture, lastname: user.lastname, firstname: user.firstname, email: user.email, city: user.city, birthdate: user.birthdate, artists: user.artists, styles: user.styles})
+    res.json({ result: true, user})
   })
+})
+
+ router.post('/photo', async (req, res) => {
+  const photoPath = `./tmp/${uniqid()}.jpg`;
+  const resultMove = await req.files.photoFromFront.mv(photoPath);
+
+  if (!resultMove) {
+      const resultCloudinary = await cloudinary.uploader.upload(photoPath);
+
+      fs.unlinkSync(photoPath);
+
+      res.json({ result: true, url: resultCloudinary.secure_url });
+  }
+
+  else {
+      res.json({ result: false, error: resultMove });
+  }
+ 
+});
+router.put('/update', (req,res) => {
+  
 })
 
 module.exports = router;
