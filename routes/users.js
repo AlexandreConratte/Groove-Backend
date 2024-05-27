@@ -21,7 +21,6 @@ router.post('/getAllUsers', function (req, res) {
         return ({ token: e.token, username: e.username, city: e.city, picture: e.picture })
       })
       friends = friends.filter((e) => e.token != req.body.token)
-      console.log(friends)
       res.json({ result: true, friends: friends })
     })
 });
