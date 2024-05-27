@@ -16,7 +16,6 @@ const fs = require('fs');
 router.post('/getAllUsers', function (req, res) {
   User.find()
     .then((data) => {
-
       let friends = data.map((e) => {
         return ({ token: e.token, username: e.username, city: e.city, picture: e.picture })
       })
@@ -39,9 +38,12 @@ router.post('/getAllFriends', function (req, res) {
 router.put('/addFriend', function (req, res) {
   User.findOne({ token: req.body.token })
     .then(data => {
-      const newFriend = [...data.friends, req.body.user]
-      User.updateOne({ token: req.body.token }, { friends: newFriend })
-        .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
+      User.findOne({ token: req.body.friendToken })
+        .then((friendData) => {
+          const newFriend = [...data.friends, friendData.id]
+          User.updateOne({ token: req.body.token }, { friends: newFriend })
+            .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
+        })
     })
 })
 
@@ -230,7 +232,7 @@ router.post('/iprofil', (req, res) => {
 router.post('/test', async (req, res) => {
   //const photoPath = `./tmp/${uniqid()}.jpg`;
   //const resultMove = await req.files.photoFromFront.mv(photoPath);
-  res.json({ photo : req.files.photoFromFront})
+  res.json({ photo: req.files.photoFromFront })
 })
 
 
@@ -266,7 +268,7 @@ router.put('/update', (req, res) => {
   if (phone) updatedFields.phone = phone;
   if (city) updatedFields.city = city;
   if (birthdate) updatedFields.birthdate = birthdate;
-  if (styles) updatedFields.styles = styles; 
+  if (styles) updatedFields.styles = styles;
   if (artists) updatedFields.artists = artists;
 
   User.findOneAndUpdate(
