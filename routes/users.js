@@ -303,9 +303,9 @@ app.use(fileUpload({
 
 // Configurer Cloudinary
 cloudinary.config({
-  cloud_name: 'your_cloud_name',
-  api_key: 'your_api_key',
-  api_secret: 'your_api_secret'
+  cloud_name: 'dnkx5rujh',
+  api_key: '214513688147967',
+  api_secret: 'DLh1rR5_t7mvMj-Bc1LlhW2Lsyc'
 });
 
 app.post('/photo', async (req, res) => {
@@ -315,7 +315,7 @@ app.post('/photo', async (req, res) => {
     // Upload directement sur Cloudinary
     const resultCloudinary = await cloudinary.uploader.upload(file.tempFilePath, {
       public_id: uniqid(),
-      folder: 'your_folder_name'
+      folder: 'Groove'
     });
     console.log("result cloudinary back", resultCloudinary);
 
