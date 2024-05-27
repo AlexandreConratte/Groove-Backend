@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const uniqid = require('uniqid');
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
+import path from 'path';
 
 
 router.post('/getAllUsers', function (req, res) {
