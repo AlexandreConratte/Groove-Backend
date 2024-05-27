@@ -228,13 +228,22 @@ router.post('/iprofil', (req, res) => {
       res.json({ result: true, user })
     })
 })
+router.post('/test', async (req, res) => {
+  //const photoPath = `./tmp/${uniqid()}.jpg`;
+  //const resultMove = await req.files.photoFromFront.mv(photoPath);
+  res.json({ photo : req.files.photoFromFront})
+})
+
+
 
 router.post('/photo', async (req, res) => {
   const photoPath = `./tmp/${uniqid()}.jpg`;
   const resultMove = await req.files.photoFromFront.mv(photoPath);
+  console.log(resultMove)
 
   if (!resultMove) {
     const resultCloudinary = await cloudinary.uploader.upload(photoPath);
+    console.log("result cloudinary back", resultCloudinary)
 
     fs.unlinkSync(photoPath);
 
@@ -248,7 +257,7 @@ router.post('/photo', async (req, res) => {
 });
 
 router.put('/update', (req, res) => {
-  const { token, username, email, firstname, lastname, phone, city, styles, artists } = req.body;
+  const { token, username, email, firstname, lastname, phone, city, styles, artists, birthdate } = req.body;
 
   let updatedFields = {};
   if (username) updatedFields.username = username;
@@ -257,7 +266,8 @@ router.put('/update', (req, res) => {
   if (lastname) updatedFields.lastname = lastname;
   if (phone) updatedFields.phone = phone;
   if (city) updatedFields.city = city;
-  if (styles) updatedFields.styles = styles; // 
+  if (birthdate) updatedFields.birthdate = birthdate;
+  if (styles) updatedFields.styles = styles; 
   if (artists) updatedFields.artists = artists;
 
   User.findOneAndUpdate(
