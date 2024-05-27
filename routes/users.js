@@ -13,17 +13,24 @@ const fs = require('fs');
 
 
 /* GET users listing. */
-router.get('/findAll', function (req, res) {
+router.post('/getAllUsers', function (req, res) {
   User.find()
-    .then(data => (res.json({ result: true, users: data })))
+    .then((data) => {
+
+      let friends = data.map((e) => {
+        return ({ token: e.token, username: e.username, city: e.city, picture: e.picture })
+      })
+      friends = friends.filter((e) => e.token != req.body.token)
+      res.json({ result: true, friends: friends })
+    })
 });
 
 router.post('/getAllFriends', function (req, res) {
   User.find({ token: req.body.token })
-  .populate('friends')
+    .populate('friends')
     .then((data) => {
-      const friends = data[0].friends.map((e)=>{
-        return ({username:e.username,city:e.city,picture:e.picture})
+      const friends = data[0].friends.map((e) => {
+        return ({ username: e.username, city: e.city, picture: e.picture })
       })
       res.json({ result: true, friends: friends })
     })
