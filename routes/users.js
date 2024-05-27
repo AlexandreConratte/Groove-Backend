@@ -242,11 +242,7 @@ router.post('/photo', async (req, res) => {
   const photoPath = `./tmp/${uniqid()}.jpg`;
   console.log("reqfile console", req.files.photoFromFront)
   const resultMove = await req.files.photoFromFront.mv(photoPath);
-<<<<<<< HEAD
   console.log( "result move console", resultMove)
-=======
-  console.log(resultMove)
->>>>>>> 4c88cc816e2ef4772840e0dae6ea96839dd99eb8
 
   if (!resultMove) {
     const resultCloudinary = await cloudinary.uploader.upload(photoPath);
