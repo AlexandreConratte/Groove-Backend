@@ -241,23 +241,23 @@ router.post('/test', async (req, res) => {
 router.post('/photo', async (req, res) => {
   const photoPath = `./tmp/${uniqid()}.jpg`;
   console.log("reqfile console", req.files.photoFromFront)
-  const resultMove = await req.files.photoFromFront.mv(photoPath);
-  console.log( "result move console", resultMove)
+  /*const resultMove = await req.files.photoFromFront.mv(photoPath);
+  console.log( "result move console", resultMove) */
 
-  if (!resultMove) {
-    /*
+  /*if (!resultMove) {
+    
     const resultCloudinary = await cloudinary.uploader.upload(photoPath);
     console.log("result cloudinary back", resultCloudinary)
 
     fs.unlinkSync(photoPath);
 
-    res.json({ result: true, url: resultCloudinary.secure_url });*/
-    res.json( {result: true})
+    res.json({ result: true, url: resultCloudinary.secure_url });
   }
-
+  
   else {
     res.json({ result: false, error: resultMove });
-  }
+  } */
+  res.json( {result: true, photo : req.files.photoFromFront })
 
 });
 
