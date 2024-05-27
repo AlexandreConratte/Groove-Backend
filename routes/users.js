@@ -230,17 +230,14 @@ router.post('/iprofil', (req, res) => {
       res.json({ result: true, user })
     })
 })
-router.post('/test', async (req, res) => {
-  //const photoPath = `./tmp/${uniqid()}.jpg`;
-  //const resultMove = await req.files.photoFromFront.mv(photoPath);
-  res.json({ photo: req.files.photoFromFront })
-})
+
 
 
 
 router.post('/photo', async (req, res) => {
-  const photoPath = `./tmp/${uniqid()}.jpg`;
-  console.log("reqfile console", req.files.photoFromFront)
+  //const photoPath = `./tmp/${uniqid()}.jpg`;
+  const photoPath = path.join(process.cwd(), `${uniqid()}.jpg`);
+  console.log(photoPath)
   /*const resultMove = await req.files.photoFromFront.mv(photoPath);
   console.log( "result move console", resultMove) */
 
@@ -257,7 +254,7 @@ router.post('/photo', async (req, res) => {
   else {
     res.json({ result: false, error: resultMove });
   } */
-  res.json( {result: true, photo : req.files.photoFromFront })
+  res.json( {result: true, photo : photoPath })
 
 });
 
