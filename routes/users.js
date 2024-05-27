@@ -11,9 +11,9 @@ const uniqid = require('uniqid');
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 import path from 'path';
-const express = require('express')  
-const fileUpload = require('express-fileupload');
-const app = express();
+// const express = require('express')  
+// const fileUpload = require('express-fileupload');
+// const app = express();
 
 
 router.post('/getAllUsers', function (req, res) {
