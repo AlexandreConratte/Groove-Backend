@@ -238,7 +238,7 @@ router.post('/iprofil', (req, res) => {
 
 
 
-/* router.post('/photo', async (req, res) => {
+ router.post('/photo', async (req, res) => {
   //const photoPath = `./tmp/${uniqid()}.jpg`;
   const photoPath = path.join(process.cwd(), `${uniqid()}.jpg`);
 
@@ -257,9 +257,9 @@ router.post('/iprofil', (req, res) => {
   
   else {
     res.json({ result: false, error: resultMove });
-  } 
+  } */
 
-}); */
+});
 
 router.put('/update', (req, res) => {
   const { token, username, email, firstname, lastname, phone, city, styles, artists, birthdate } = req.body;
@@ -295,7 +295,7 @@ router.put('/update', (req, res) => {
 
 
 
-//test nouvelle route
+ /* test nouvelle route
 app.use(fileUpload({
   useTempFiles: true,
   tempFileDir: '/tmp/'  // Répertoire temporaire
@@ -303,9 +303,9 @@ app.use(fileUpload({
 
 // Configurer Cloudinary
 cloudinary.config({
-  cloud_name: 'dnkx5rujh',
-  api_key: '214513688147967',
-  api_secret: 'DLh1rR5_t7mvMj-Bc1LlhW2Lsyc'
+  cloud_name: 'your_cloud_name',
+  api_key: 'your_api_key',
+  api_secret: 'your_api_secret'
 });
 
 app.post('/photo', async (req, res) => {
@@ -315,7 +315,7 @@ app.post('/photo', async (req, res) => {
     // Upload directement sur Cloudinary
     const resultCloudinary = await cloudinary.uploader.upload(file.tempFilePath, {
       public_id: uniqid(),
-      folder: 'Groove'
+      folder: 'your_folder_name'
     });
     console.log("result cloudinary back", resultCloudinary);
 
@@ -329,6 +329,6 @@ app.post('/photo', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
+});   */
 
 module.exports = router;
