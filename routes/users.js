@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const uniqid = require('uniqid');
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
+import path from 'path';
 
 
 router.post('/getAllUsers', function (req, res) {
@@ -230,31 +231,30 @@ router.post('/iprofil', (req, res) => {
       res.json({ result: true, user })
     })
 })
-router.post('/test', async (req, res) => {
-  //const photoPath = `./tmp/${uniqid()}.jpg`;
-  //const resultMove = await req.files.photoFromFront.mv(photoPath);
-  res.json({ photo: req.files.photoFromFront })
-})
+
 
 
 
 router.post('/photo', async (req, res) => {
-  const photoPath = `./tmp/${uniqid()}.jpg`;
-  const resultMove = await req.files.photoFromFront.mv(photoPath);
-  console.log(resultMove)
+  //const photoPath = `./tmp/${uniqid()}.jpg`;
+  const photoPath = path.join(process.cwd(), `${uniqid()}.jpg`);
 
-  if (!resultMove) {
-    const resultCloudinary = await cloudinary.uploader.upload(photoPath);
+  // const resultMove = await req.files.photoFromFront.mv(photoPath);
+  
+ // if (!resultMove) {
+    
+    const resultCloudinary = await cloudinary.uploader.upload(req.files.photoFromFront);
     console.log("result cloudinary back", resultCloudinary)
 
-    fs.unlinkSync(photoPath);
+    fs.unlinkSync(photoPath); 
 
-    res.json({ result: true, url: resultCloudinary.secure_url });
+    res.json({ result: true, url: resultCloudinary.secure_url }); 
+    /* res.json( {result: true, photo : photoPath })
   }
-
+  
   else {
     res.json({ result: false, error: resultMove });
-  }
+  } */
 
 });
 
