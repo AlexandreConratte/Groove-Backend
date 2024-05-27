@@ -12,33 +12,43 @@ const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 
 
-/* GET users listing. */
-router.get('/findAll', function (req, res) {
+router.post('/getAllUsers', function (req, res) {
   User.find()
-    .then(data => (res.json({ result: true, users: data })))
+    .then((data) => {
+      let friends = data.map((e) => {
+        return ({ token: e.token, username: e.username, city: e.city, picture: e.picture })
+      })
+      friends = friends.filter((e) => e.token != req.body.token)
+      res.json({ result: true, friends: friends })
+    })
 });
 
 router.post('/getAllFriends', function (req, res) {
   User.find({ token: req.body.token })
-  .populate('friends')
+    .populate('friends')
     .then((data) => {
-      const friends = data[0].friends.map((e)=>{
-        return ({username:e.username,city:e.city,picture:e.picture})
+      const friends = data[0].friends.map((e) => {
+        return ({ username: e.username, city: e.city, picture: e.picture, token: e.token })
       })
       res.json({ result: true, friends: friends })
     })
 });
 
 router.put('/addFriend', function (req, res) {
-  User.findOne({ token: req.body.token })
-    .then(data => {
-      const newFriend = [...data.friends, req.body.user]
-      User.updateOne({ token: req.body.token }, { friends: newFriend })
+  User.findOne({ token: req.body.friendToken })
+    .then((friendData) => {
+      User.updateOne({ token: req.body.token }, { $push: { friends: friendData.id } })
         .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
     })
 })
 
-
+router.put('/deleteFriend', function (req, res) {
+  User.findOne({ token: req.body.friendToken })
+    .then((friendData) => {
+      User.updateOne({ token: req.body.token }, { $pull: { friends: friendData.id } })
+        .then(() => res.json({ result: true }))
+    })
+})
 
 const mailregex = /^((?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\]))$/
 
@@ -223,7 +233,7 @@ router.post('/iprofil', (req, res) => {
 router.post('/test', async (req, res) => {
   //const photoPath = `./tmp/${uniqid()}.jpg`;
   //const resultMove = await req.files.photoFromFront.mv(photoPath);
-  res.json({ photo : req.files.photoFromFront})
+  res.json({ photo: req.files.photoFromFront })
 })
 
 
@@ -232,7 +242,11 @@ router.post('/photo', async (req, res) => {
   const photoPath = `./tmp/${uniqid()}.jpg`;
   console.log("reqfile console", req.files.photoFromFront)
   const resultMove = await req.files.photoFromFront.mv(photoPath);
+<<<<<<< HEAD
   console.log( "result move console", resultMove)
+=======
+  console.log(resultMove)
+>>>>>>> 4c88cc816e2ef4772840e0dae6ea96839dd99eb8
 
   if (!resultMove) {
     const resultCloudinary = await cloudinary.uploader.upload(photoPath);
@@ -250,7 +264,7 @@ router.post('/photo', async (req, res) => {
 });
 
 router.put('/update', (req, res) => {
-  const { token, username, email, firstname, lastname, phone, city, styles, artists } = req.body;
+  const { token, username, email, firstname, lastname, phone, city, styles, artists, birthdate } = req.body;
 
   let updatedFields = {};
   if (username) updatedFields.username = username;
@@ -259,7 +273,8 @@ router.put('/update', (req, res) => {
   if (lastname) updatedFields.lastname = lastname;
   if (phone) updatedFields.phone = phone;
   if (city) updatedFields.city = city;
-  if (styles) updatedFields.styles = styles; // 
+  if (birthdate) updatedFields.birthdate = birthdate;
+  if (styles) updatedFields.styles = styles;
   if (artists) updatedFields.artists = artists;
 
   User.findOneAndUpdate(
