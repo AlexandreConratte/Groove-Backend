@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema({
     likedFestivals: { type: [mongoose.Schema.Types.ObjectId], ref: 'festivals', default: [] },
     memoriesFestivals: { type: [mongoose.Schema.Types.ObjectId], ref: 'festivals', default: [] },
     picture: { type : String, default : null },
-    settings: settingSchema
+    settings: { type: settingSchema, default: {} },
 });
 
 const User = mongoose.model('users', userSchema);
