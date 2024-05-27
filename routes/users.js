@@ -12,7 +12,6 @@ const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 
 
-/* GET users listing. */
 router.post('/getAllUsers', function (req, res) {
   User.find()
     .then((data) => {
@@ -29,7 +28,7 @@ router.post('/getAllFriends', function (req, res) {
     .populate('friends')
     .then((data) => {
       const friends = data[0].friends.map((e) => {
-        return ({ username: e.username, city: e.city, picture: e.picture })
+        return ({ username: e.username, city: e.city, picture: e.picture, token: e.token })
       })
       res.json({ result: true, friends: friends })
     })
@@ -37,12 +36,24 @@ router.post('/getAllFriends', function (req, res) {
 
 router.put('/addFriend', function (req, res) {
   User.findOne({ token: req.body.token })
-    .then(data => {
+    .then((data) => {
       User.findOne({ token: req.body.friendToken })
         .then((friendData) => {
           const newFriend = [...data.friends, friendData.id]
           User.updateOne({ token: req.body.token }, { friends: newFriend })
             .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
+        })
+    })
+})
+
+router.put('/deleteFriend', function (req, res) {
+  User.findOne({ token: req.body.token })
+    .then((data) => {
+      User.findOne({ token: req.body.friendToken })
+        .then((friendData) => {
+          const newtab = data.friends.filter((e) => e !== friendData.id)
+          User.updateOne({ token: req.body.token }, { friends: newtab })
+            .then(() => res.json({ result: true, message: 'Ami(e) supprimé' }))
         })
     })
 })
