@@ -238,24 +238,23 @@ router.post('/iprofil', (req, res) => {
 router.post('/photo', async (req, res) => {
   //const photoPath = `./tmp/${uniqid()}.jpg`;
   const photoPath = path.join(process.cwd(), `${uniqid()}.jpg`);
-  console.log(photoPath)
-  const resultMove = await req.files.photoFromFront.mv(photoPath);
-  console.log( "result move console", resultMove) 
 
-  if (!resultMove) {
+  // const resultMove = await req.files.photoFromFront.mv(photoPath);
+  
+ // if (!resultMove) {
     
-    /* const resultCloudinary = await cloudinary.uploader.upload(photoPath);
+    const resultCloudinary = await cloudinary.uploader.upload(req.files.photoFromFront);
     console.log("result cloudinary back", resultCloudinary)
 
     fs.unlinkSync(photoPath); 
 
-    res.json({ result: true, url: resultCloudinary.secure_url }); */
-     res.json( {result: true, photo : photoPath })
+    res.json({ result: true, url: resultCloudinary.secure_url }); 
+    /* res.json( {result: true, photo : photoPath })
   }
   
   else {
     res.json({ result: false, error: resultMove });
-  } 
+  } */
 
 });
 
