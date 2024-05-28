@@ -295,7 +295,7 @@ router.put('/update', (req, res) => {
 
 
 
- /* test nouvelle route
+ // test nouvelle route
 app.use(fileUpload({
   useTempFiles: true,
   tempFileDir: '/tmp/'  // Répertoire temporaire
@@ -303,9 +303,9 @@ app.use(fileUpload({
 
 // Configurer Cloudinary
 cloudinary.config({
-  cloud_name: 'your_cloud_name',
-  api_key: 'your_api_key',
-  api_secret: 'your_api_secret'
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 app.post('/photo', async (req, res) => {
@@ -315,7 +315,7 @@ app.post('/photo', async (req, res) => {
     // Upload directement sur Cloudinary
     const resultCloudinary = await cloudinary.uploader.upload(file.tempFilePath, {
       public_id: uniqid(),
-      folder: 'your_folder_name'
+      folder: 'Groove'
     });
     console.log("result cloudinary back", resultCloudinary);
 
@@ -326,7 +326,7 @@ app.post('/photo', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+/* const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });   */
