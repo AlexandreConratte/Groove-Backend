@@ -48,5 +48,12 @@ router.delete('/deleteGroup', function (req, res) {
     .then(() => res.json({ result: true, message: 'Groupe supprimé' }));
 })
 
+router.put('/changeStatut', function (req, res) {
+  Group.updateOne({_id : req.body.groupId },{ $pull:{ [req.body.oldStatut] : req.body.userId } })
+    .then(()=>{
+      Group.updateOne({_id : req.body.groupId },{ $push: { [req.body.newStatut] : req.body.userId } })
+      .then(() => res.json({ result: true }))
+    })
+})
 
 module.exports = router;
