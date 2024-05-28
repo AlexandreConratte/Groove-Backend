@@ -9,9 +9,6 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const uniqid = require('uniqid');
 const cloudinary = require('cloudinary').v2;
-// const fs = require('fs');
-//  import path from 'path';
-
 
 
 router.post('/infoUser', (req, res) => {
@@ -277,52 +274,22 @@ router.put('/update', (req, res) => {
 })
 
 
-
-
- // app.use(fileUpload())
-
-
-/* cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
 router.post('/photo', async (req, res) => {
-  try {
-    const file = req.files.photoFromFront;
-    const resultCloudinary = await cloudinary.uploader.upload(file.tempFilePath, {
-      public_id: uniqid(),
-      folder: 'Groove'
-    });
-    console.log("result cloudinary back", resultCloudinary);
 
-    res.json({ result: true, url: resultCloudinary.secure_url });
-  } catch (error) {
-    console.error('Upload error:', error);
-    res.status(500).json({ result: false, error: error.message });
-  }
-});  */
+  const photoPath = `/tmp/${uniqid()}.jpg`;
+  const resultMove = await req.files.photoFromFront.mv(photoPath);
 
-
-  router.post('/photo', async (req, res) => {
-  
-    const photoPath = `/tmp/${uniqid()}.jpg`;
-  
-
-   const resultMove = await req.files.photoFromFront.mv(photoPath);
-  
   if (!resultMove) {
     const resultCloudinary = await cloudinary.uploader.upload(photoPath);
-    
-    res.json({ result: true, url: resultCloudinary.secure_url });   
+
+    res.json({ result: true, url: resultCloudinary.secure_url });
   }
-  
+
   else {
     res.json({ result: false, error: resultMove });
-    
+
   };
-} )
+})
 
 
 module.exports = router;
