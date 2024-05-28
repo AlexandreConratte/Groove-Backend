@@ -175,16 +175,22 @@ router.post('/search', async (req, res) => {
 })
 
 
-router.post('/nbLikes', (req,res) => {
-  const {festivalId} = req.body;
+router.post('/nbLikes', (req, res) => {
+  const { festivalId } = req.body;
 
   Festival.findById(festivalId).then(festival => {
     if (!festival) {
       return res.json({ result: false, error: 'Festival not found' });
     }
-    res.json({result: true, nbLike: festival.nbLikes.length})
+    res.json({ result: true, nbLike: festival.nbLikes.length })
   })
 })
 
+router.post('/findById', (req, res) => {
+  Festival.findById(req.body.id)
+    .then((festival) => {
+      res.json({ result: festival });
+    })
+})
 
 module.exports = router;
