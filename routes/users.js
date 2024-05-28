@@ -13,7 +13,7 @@ const fs = require('fs');
 import path from 'path';
 // const express = require('express')  
 // const fileUpload = require('express-fileupload');
-// const app = express();
+const app = express();
 
 router.post('/infoUser', (req, res) => {
   User.findById(req.body.id)
