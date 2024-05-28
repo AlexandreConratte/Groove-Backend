@@ -15,6 +15,13 @@ import path from 'path';
 // const fileUpload = require('express-fileupload');
 // const app = express();
 
+router.post('/infoUser', (req, res) => {
+  User.findById(req.body.id)
+    .select('-_id -password -token -friends -likedFestivals -memoriesFestivals') // pour retires les champs dont on a pas besoin
+    .then(user => {
+      res.json({ result: true, user })
+    })
+})
 
 router.post('/getAllUsers', function (req, res) {
   User.find()

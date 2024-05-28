@@ -47,4 +47,6 @@ router.delete('/deleteGroup', function (req, res) {
   Group.deleteOne({ name: req.body.name })
     .then(() => res.json({ result: true, message: 'Groupe supprimé' }));
 })
+
+
 module.exports = router;
