@@ -12,7 +12,7 @@ const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 import path from 'path';
 // const express = require('express')  
-const fileUpload = require('express-fileupload');
+// const fileUpload = require('express-fileupload');
 
 
 router.post('/infoUser', (req, res) => {
@@ -302,7 +302,7 @@ router.put('/update', (req, res) => {
 
 
 
- app.use(fileUpload())
+ // app.use(fileUpload())
 
 // Configurer Cloudinary
 cloudinary.config({
