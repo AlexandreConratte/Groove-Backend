@@ -32,10 +32,13 @@ router.post('/getAllUsers', function (req, res) {
 
 router.post('/getAllFriends', function (req, res) {
   User.find({ token: req.body.token })
-    .populate('friends')
+    .populate({
+      path: 'friends',
+      populate: [{ path: 'styles' }, { path: 'artists' }]
+    })
     .then((data) => {
       const friends = data[0].friends.map((e) => {
-        return ({ username: e.username, city: e.city, picture: e.picture, token: e.token })
+        return ({ username: e.username, city: e.city, picture: e.picture, token: e.token, lastname: e.lastname, firstname: e.firstname, birthdate: e.birthdate, styles: e.styles, artists: e.artists })
       })
       res.json({ result: true, friends: friends })
     })
