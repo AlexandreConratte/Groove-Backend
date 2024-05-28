@@ -308,7 +308,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-app.post('/photo', async (req, res) => {
+router.post('/photo', async (req, res) => {
   try {
     const file = req.files.photoFromFront;
 
