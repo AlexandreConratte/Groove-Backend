@@ -302,7 +302,7 @@ router.put('/update', (req, res) => {
 
 
 
- app.use(fileUpload())
+ // app.use(fileUpload())
 
 // Configurer Cloudinary
 cloudinary.config({
