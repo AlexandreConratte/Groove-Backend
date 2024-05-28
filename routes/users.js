@@ -9,11 +9,7 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const uniqid = require('uniqid');
 const cloudinary = require('cloudinary').v2;
-const fs = require('fs');
-import path from 'path';
-// const express = require('express')  
-// const fileUpload = require('express-fileupload');
-// const app = express();
+
 
 router.post('/infoUser', (req, res) => {
   User.findById(req.body.id)
@@ -169,7 +165,8 @@ router.post('/findLiked', (req, res) => {
 
 router.post('/checkUser', (req, res) => {
   const { username } = req.body;
-  User.findOne({ username })
+  const regex_user = new RegExp("^" + username + "$", "i")
+  User.findOne({ username : regex_user })
     .then(data => {
       if (data) {
         res.json({ result: true, error: "User déjà existant" }); //verifie qu'il y a un utilisateur, ce qui nous coduit à l'erreur en screen connect2
@@ -245,28 +242,6 @@ router.post('/iprofil', (req, res) => {
 
 
 
- router.post('/photo', async (req, res) => {
-  //const photoPath = `./tmp/${uniqid()}.jpg`;
-  const photoPath = path.join(process.cwd(), `${uniqid()}.jpg`);
-
-  // const resultMove = await req.files.photoFromFront.mv(photoPath);
-  
- // if (!resultMove) {
-    
-    const resultCloudinary = await cloudinary.uploader.upload(req.files.photoFromFront);
-    console.log("result cloudinary back", resultCloudinary)
-
-    fs.unlinkSync(photoPath); 
-
-    res.json({ result: true, url: resultCloudinary.secure_url }); 
-    /* res.json( {result: true, photo : photoPath })
-  }
-  
-  else {
-    res.json({ result: false, error: resultMove });
-  } */
-
-});
 
 router.put('/update', (req, res) => {
   const { token, username, email, firstname, lastname, phone, city, styles, artists, birthdate } = req.body;
@@ -300,42 +275,22 @@ router.put('/update', (req, res) => {
 })
 
 
-
-
- // test nouvelle route
-/* app.use(fileUpload({
-  useTempFiles: true,
-  tempFileDir: '/tmp/'  // Répertoire temporaire
-}));   */
-
-// Configurer Cloudinary
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
 router.post('/photo', async (req, res) => {
-  try {
-    const file = req.files.photoFromFront;
 
-    // Upload directement sur Cloudinary
-    const resultCloudinary = await cloudinary.uploader.upload(file.tempFilePath, {
-      public_id: uniqid(),
-      folder: 'Groove'
-    });
-    console.log("result cloudinary back", resultCloudinary);
+  const photoPath = `/tmp/${uniqid()}.jpg`;
+  const resultMove = await req.files.photoFromFront.mv(photoPath);
+
+  if (!resultMove) {
+    const resultCloudinary = await cloudinary.uploader.upload(photoPath);
 
     res.json({ result: true, url: resultCloudinary.secure_url });
-  } catch (error) {
-    console.error('Upload error:', error);
-    res.status(500).json({ result: false, error: error.message });
   }
-});
 
-/* const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});   */
+  else {
+    res.json({ result: false, error: resultMove });
+
+  };
+})
+
 
 module.exports = router;
