@@ -11,14 +11,6 @@ const uniqid = require('uniqid');
 const cloudinary = require('cloudinary').v2;
 
 
-router.post('/infoUser', (req, res) => {
-  User.findById(req.body.id)
-    .select('-_id -password -token -friends -likedFestivals -memoriesFestivals') // pour retires les champs dont on a pas besoin
-    .then(user => {
-      res.json({ result: true, user })
-    })
-})
-
 router.post('/getAllUsers', function (req, res) {
   User.find()
     .then((data) => {
@@ -35,7 +27,7 @@ router.post('/getAllFriends', function (req, res) {
     .populate('friends')
     .then((data) => {
       const friends = data[0].friends.map((e) => {
-        return ({ username: e.username, city: e.city, picture: e.picture, token: e.token })
+        return ({ username: e.username, city: e.city, picture: e.picture, token: e.token,  })
       })
       res.json({ result: true, friends: friends })
     })
@@ -165,8 +157,7 @@ router.post('/findLiked', (req, res) => {
 
 router.post('/checkUser', (req, res) => {
   const { username } = req.body;
-  const regex_user = new RegExp("^" + username + "$", "i")
-  User.findOne({ username : regex_user })
+  User.findOne({ username })
     .then(data => {
       if (data) {
         res.json({ result: true, error: "User déjà existant" }); //verifie qu'il y a un utilisateur, ce qui nous coduit à l'erreur en screen connect2
@@ -242,6 +233,28 @@ router.post('/iprofil', (req, res) => {
 
 
 
+router.post('/photo', async (req, res) => {
+  //const photoPath = `./tmp/${uniqid()}.jpg`;
+  const photoPath = path.join(process.cwd(), `${uniqid()}.jpg`);
+
+  // const resultMove = await req.files.photoFromFront.mv(photoPath);
+  
+ // if (!resultMove) {
+    
+    const resultCloudinary = await cloudinary.uploader.upload(req.files.photoFromFront);
+    console.log("result cloudinary back", resultCloudinary)
+
+    fs.unlinkSync(photoPath); 
+
+    res.json({ result: true, url: resultCloudinary.secure_url }); 
+    /* res.json( {result: true, photo : photoPath })
+  }
+  
+  else {
+    res.json({ result: false, error: resultMove });
+  } */
+
+});
 
 router.put('/update', (req, res) => {
   const { token, username, email, firstname, lastname, phone, city, styles, artists, birthdate } = req.body;
@@ -273,24 +286,5 @@ router.put('/update', (req, res) => {
     })
 
 })
-
-
-router.post('/photo', async (req, res) => {
-
-  const photoPath = `/tmp/${uniqid()}.jpg`;
-  const resultMove = await req.files.photoFromFront.mv(photoPath);
-
-  if (!resultMove) {
-    const resultCloudinary = await cloudinary.uploader.upload(photoPath);
-
-    res.json({ result: true, url: resultCloudinary.secure_url });
-  }
-
-  else {
-    res.json({ result: false, error: resultMove });
-
-  };
-})
-
 
 module.exports = router;
