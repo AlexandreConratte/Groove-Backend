@@ -61,4 +61,11 @@ router.put('/changeStatut', function (req, res) {
     })
 })
 
+router.post('/groupInfo', function (req, res) {
+  Group.findById(req.body.groupId)
+    .then((data) => {
+      res.json({ result: true, groups: data })
+    })
+});
+
 module.exports = router;
