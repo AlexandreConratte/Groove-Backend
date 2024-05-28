@@ -11,8 +11,6 @@ router.post('/findAllByUsername', function (req, res) {
       Group.find({ members: userId })
         .populate({ path: 'festival', select: 'name' })
         .then((data) => {
-          //result=data.map((e)=>e.festival=e.festival.name)
-          console.log(data)
           res.json({ result: true, groups: data })
         })
     })
