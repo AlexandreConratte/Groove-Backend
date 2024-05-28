@@ -11,6 +11,9 @@ const uniqid = require('uniqid');
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 import path from 'path';
+// const express = require('express')  
+// const fileUpload = require('express-fileupload');
+// const app = express();
 
 
 router.post('/getAllUsers', function (req, res) {
@@ -235,7 +238,7 @@ router.post('/iprofil', (req, res) => {
 
 
 
-router.post('/photo', async (req, res) => {
+ router.post('/photo', async (req, res) => {
   //const photoPath = `./tmp/${uniqid()}.jpg`;
   const photoPath = path.join(process.cwd(), `${uniqid()}.jpg`);
 
@@ -288,5 +291,44 @@ router.put('/update', (req, res) => {
     })
 
 })
+
+
+
+
+ /* test nouvelle route
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'  // Répertoire temporaire
+}));
+
+// Configurer Cloudinary
+cloudinary.config({
+  cloud_name: 'your_cloud_name',
+  api_key: 'your_api_key',
+  api_secret: 'your_api_secret'
+});
+
+app.post('/photo', async (req, res) => {
+  try {
+    const file = req.files.photoFromFront;
+
+    // Upload directement sur Cloudinary
+    const resultCloudinary = await cloudinary.uploader.upload(file.tempFilePath, {
+      public_id: uniqid(),
+      folder: 'your_folder_name'
+    });
+    console.log("result cloudinary back", resultCloudinary);
+
+    res.json({ result: true, url: resultCloudinary.secure_url });
+  } catch (error) {
+    console.error('Upload error:', error);
+    res.status(500).json({ result: false, error: error.message });
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});   */
 
 module.exports = router;
