@@ -165,7 +165,8 @@ router.post('/findLiked', (req, res) => {
 
 router.post('/checkUser', (req, res) => {
   const { username } = req.body;
-  User.findOne({ username })
+  const regex_user = new RegExp("^" + username + "$", "i")
+  User.findOne({ username : regex_user })
     .then(data => {
       if (data) {
         res.json({ result: true, error: "User déjà existant" }); //verifie qu'il y a un utilisateur, ce qui nous coduit à l'erreur en screen connect2
