@@ -296,10 +296,10 @@ router.put('/update', (req, res) => {
 
 
  // test nouvelle route
-app.use(fileUpload({
+/* app.use(fileUpload({
   useTempFiles: true,
   tempFileDir: '/tmp/'  // Répertoire temporaire
-}));
+}));   */
 
 // Configurer Cloudinary
 cloudinary.config({
