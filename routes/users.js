@@ -11,9 +11,9 @@ const uniqid = require('uniqid');
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 import path from 'path';
-// const express = require('express')  
-// const fileUpload = require('express-fileupload');
-// const app = express();
+ const express = require('express')  
+ const fileUpload = require('express-fileupload');
+ // const app = express();
 
 
 router.post('/getAllUsers', function (req, res) {
@@ -238,13 +238,13 @@ router.post('/iprofil', (req, res) => {
 
 
 
- /* router.post('/photo', async (req, res) => {
+  /* router.post('/photo', async (req, res) => {
   //const photoPath = `./tmp/${uniqid()}.jpg`;
   const photoPath = path.join(process.cwd(), `${uniqid()}.jpg`);
 
   // const resultMove = await req.files.photoFromFront.mv(photoPath);
   
- // if (!resultMove) {
+  if (!resultMove) {
     
     const resultCloudinary = await cloudinary.uploader.upload(req.files.photoFromFront);
     console.log("result cloudinary back", resultCloudinary)
@@ -252,7 +252,7 @@ router.post('/iprofil', (req, res) => {
     fs.unlinkSync(photoPath); 
 
     res.json({ result: true, url: resultCloudinary.secure_url }); 
-    /* res.json( {result: true, photo : photoPath })
+     res.json( {result: true, photo : photoPath })
   }
   
   else {
@@ -295,25 +295,25 @@ router.put('/update', (req, res) => {
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+// Utiliser express-fileupload pour gérer les fichiers téléchargés
+router.use(fileUpload());
+
 router.post('/photo', async (req, res) => {
+  if (!req.files || !req.files.photoFromFront) {
+    return res.status(400).json({ result: false, error: 'No file uploaded' });
+  }
+
+  const file = req.files.photoFromFront;
+
   try {
-    const file = req.files.photoFromFront;
-
-  const resultCloudinary = await cloudinary.uploader.upload(file.tempFilePath, {
-      public_id: uniqid(),
-      folder: 'Groove'
-    });
-    console.log("result cloudinary back", resultCloudinary);
-
+    const resultCloudinary = await cloudinary.uploader.upload(file.tempFilePath);
     res.json({ result: true, url: resultCloudinary.secure_url });
   } catch (error) {
-    console.error('Upload error:', error);
     res.status(500).json({ result: false, error: error.message });
   }
 });
-
 
 module.exports = router;
