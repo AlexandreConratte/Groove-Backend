@@ -255,7 +255,13 @@ router.put('/update', (req, res) => {
   if (lastname !== undefined) updatedFields.lastname = lastname;
   if (phone !== undefined) updatedFields.phone = phone;
   if (city !== undefined) updatedFields.city = city;
-  if (birthdate !== undefined) updatedFields.birthdate = birthdate;
+  if (birthdate !== undefined) {
+    if (birthdate === null) {
+      updatedFields.birthdate = null;
+    } else {
+      updatedFields.birthdate = birthdate;
+    }
+  }
   if (styles) updatedFields.styles = styles;
   if (artists) updatedFields.artists = artists;
   if (picture !== undefined) updatedFields.picture = picture;
