@@ -16,24 +16,27 @@ router.post('/findAllByUsername', function (req, res) {
     })
 });
 
-router.post('/newGroup', function (req, res) {
-  Group.findOne({ name: req.body.name })
-    .then(data => {
-      if (data) {
-        res.json({ result: false, message: 'Le groupe existe déjà' })
-      }
-      else {
-        const newGroup = new Group({
-          name: req.body.name,
-          festival: req.body.festival,
-          members: req.body.user
-        });
-        newGroup.save().then(data => {
-          res.json({ result: true, group: data });
-        });
-      }
-    })
+router.post('/newGroup', async (req, res) => {
+  const data = await Group.findOne({ name: req.body.name })
+  if (data) {
+    res.json({ result: false, message: 'Le groupe existe déjà' })
+  }
+  else {
+    let members = []
+    for (let element of req.body.membersToken) {
+      const data = await User.findOne({ token: element })
+      members.push(data._id)
+    }
+    const newGroup = new Group({
+      name: req.body.name,
+      festival: req.body.festival,
+      members
+    });
+    const result = await newGroup.save()
+    res.json({ result: true, group: result });
+  }
 })
+
 router.put('/newUser', function (req, res) {
   User.findOne({ token: req.body.user })
     .then((data) => {
@@ -54,7 +57,7 @@ router.delete('/deleteGroup', function (req, res) {
 router.put('/changeStatut', function (req, res) {
   User.findOne({ token: req.body.userToken })
     .then((user) => {
-      if (user._id==req.body.userId){
+      if (user._id == req.body.userId) {
         Group.updateOne({ _id: req.body.groupId }, { $pull: { [req.body.oldStatut]: req.body.userId } })
           .then(() => {
             Group.updateOne({ _id: req.body.groupId }, { $push: { [req.body.newStatut]: req.body.userId } })
@@ -66,7 +69,7 @@ router.put('/changeStatut', function (req, res) {
               })
           })
       }
-      else{
+      else {
         res.json({ result: false })
       }
     })
