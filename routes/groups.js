@@ -32,8 +32,9 @@ router.post('/newGroup', async (req, res) => {
       festival: req.body.festival,
       members
     });
-    const result = await newGroup.save()
-    res.json({ result: true, group: result });
+    await newGroup.save()
+    const groupId = await Group.findOne({name:req.body.name})
+    res.json({ result: true, id: groupId });
   }
 })
 
