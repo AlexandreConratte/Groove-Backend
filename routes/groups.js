@@ -23,8 +23,8 @@ router.post('/newGroup', async (req, res) => {
   }
   else {
     let members = []
-    for (let element of req.body.membersToken) {
-      const user = await User.findOne({ token: element })
+    for (let element of req.body.members) {
+      const user = await User.findOne({ token : element })
       members.push(user._id)
     }
     const newGroup = new Group({
