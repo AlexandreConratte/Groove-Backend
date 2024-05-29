@@ -33,8 +33,8 @@ router.post('/newGroup', async (req, res) => {
       members
     });
     await newGroup.save()
-    const groupId = await Group.findOne({name:req.body.name})
-    res.json({ result: true, id: groupId });
+    const group = await Group.findOne({name:req.body.name})
+    res.json({ result: true, id: group._id });
   }
 })
 
