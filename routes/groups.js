@@ -54,7 +54,7 @@ router.delete('/deleteGroup', function (req, res) {
 router.put('/changeStatut', function (req, res) {
   User.findOne({ token: req.body.userToken })
     .then((user) => {
-      if (user._id===req.body.userId){
+      if (user._id==req.body.userId){
         Group.updateOne({ _id: req.body.groupId }, { $pull: { [req.body.oldStatut]: req.body.userId } })
           .then(() => {
             Group.updateOne({ _id: req.body.groupId }, { $push: { [req.body.newStatut]: req.body.userId } })
