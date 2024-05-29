@@ -255,7 +255,7 @@ router.put('/update', (req, res) => {
   if (firstname) updatedFields.firstname = firstname;
   if (lastname) updatedFields.lastname = lastname;
   if (phone) updatedFields.phone = phone;
-  if (city) updatedFields.city = city;
+  if (city !== undefined) updatedFields.city = city;
   if (birthdate) updatedFields.birthdate = birthdate;
   if (styles) updatedFields.styles = styles;
   if (artists) updatedFields.artists = artists;
