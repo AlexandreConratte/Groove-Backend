@@ -52,15 +52,23 @@ router.delete('/deleteGroup', function (req, res) {
 })
 
 router.put('/changeStatut', function (req, res) {
-  Group.updateOne({ _id: req.body.groupId }, { $pull: { [req.body.oldStatut]: req.body.userId } })
-    .then(() => {
-      Group.updateOne({ _id: req.body.groupId }, { $push: { [req.body.newStatut]: req.body.userId } })
-        .then(() => {
-          Group.findById(req.body.groupId)
-            .then((data) => {
-              res.json({ result: true, updateMembers: data })
-            })
-        })
+  User.findOne({ token: req.body.userToken })
+    .then((user) => {
+      if (user._id==req.body.userId){
+        Group.updateOne({ _id: req.body.groupId }, { $pull: { [req.body.oldStatut]: req.body.userId } })
+          .then(() => {
+            Group.updateOne({ _id: req.body.groupId }, { $push: { [req.body.newStatut]: req.body.userId } })
+              .then(() => {
+                Group.findById(req.body.groupId)
+                  .then((data) => {
+                    res.json({ result: true, updateMembers: data })
+                  })
+              })
+          })
+      }
+      else{
+        res.json({ result: false })
+      }
     })
 })
 
