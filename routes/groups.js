@@ -36,10 +36,14 @@ router.post('/newGroup', function (req, res) {
 })
 router.put('/newUser', function (req, res) {
   User.findOne({ token: req.body.user })
-  .then((data)=>{
-    Group.updateOne({ _id: req.body.groupId }, { $push: { members: data._id } })
-      .then(() => res.json({ result: true, message: 'Utilisateur ajouté' }))
-  })
+    .then((data) => {
+      Group.updateOne({ _id: req.body.groupId }, { $push: { members: data._id } })
+        .then(() =>
+          Group.findById(req.body.groupId)
+            .then((data2) => {
+              res.json({ result: true, updateMembers: data2 })
+            }))
+    })
 })
 
 router.delete('/deleteGroup', function (req, res) {
