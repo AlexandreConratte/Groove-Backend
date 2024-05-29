@@ -247,7 +247,7 @@ router.post('/iprofil', (req, res) => {
 
 
 router.put('/update', (req, res) => {
-  const { token, username, email, firstname, lastname, phone, city, styles, artists, birthdate } = req.body;
+  const { token, username, email, firstname, lastname, phone, city, styles, artists, birthdate, picture } = req.body;
 
   let updatedFields = {};
   if (username) updatedFields.username = username;
@@ -259,6 +259,7 @@ router.put('/update', (req, res) => {
   if (birthdate) updatedFields.birthdate = birthdate;
   if (styles) updatedFields.styles = styles;
   if (artists) updatedFields.artists = artists;
+  if (picture) updatedFields.picture = picture;
 
   User.findOneAndUpdate(
     { token: token },
