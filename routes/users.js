@@ -44,13 +44,6 @@ router.post('/getAllFriends', function (req, res) {
     })
 });
 
-// router.put('/addFriend', function (req, res) {
-//   User.findOne({ token: req.body.friendToken })
-//     .then((friendData) => {
-//       User.updateOne({ token: req.body.token }, { $push: { friends: friendData.id } })
-//         .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
-//     })
-// })
 router.put('/addFriend', function (req, res) {
   const { token, friendToken } = req.body;
 
