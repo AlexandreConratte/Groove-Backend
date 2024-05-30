@@ -82,14 +82,36 @@ router.put('/addFriend', function (req, res) {
 });
 
 router.put('/deleteFriend', function (req, res) {
-  User.findOne({ token: req.body.friendToken })
-    .then((friendData) => {
-      User.updateOne({ token: req.body.token }, { $pull: { friends: friendData.id } })
-        .then(() => res.json({ result: true }))
-    })
-})
+  const { token, friendToken } = req.body;
 
-const mailregex = /^((?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\]))$/
+  if (!token || !friendToken) {
+    return res.status(400).json({ result: false, message: 'Tokens are required' });
+  }
+
+  User.findOne({ token: friendToken })
+    .then((friendData) => {
+      if (!friendData) {
+        return res.status(404).json({ result: false, message: 'Friend not found' });
+      }
+
+      User.findOne({ token })
+        .then((userData) => {
+          if (!userData) {
+            return res.status(404).json({ result: false, message: 'User not found' });
+          }
+
+          // Utiliser Promise.all pour effectuer les deux mises à jour en parallèle
+          Promise.all([
+            User.updateOne({ token }, { $pull: { friends: friendData._id } }),
+            User.updateOne({ token: friendToken }, { $pull: { friends: userData._id } })
+          ])
+          .then(() => res.json({ result: true, message: 'Ami(e) supprimé' }))
+          .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la suppression de l\'ami', error }));
+        })
+        .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la recherche de l\'utilisateur', error }));
+    })
+    .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la recherche de l\'ami', error }));
+});
 
 router.post('/signup', (req, res) => {
   if (!checkBody(req.body, ['username', 'email', 'password'])) {
@@ -114,7 +136,6 @@ router.post('/signup', (req, res) => {
           userObligate[field] = req.body[field];
         }
       });
-      // console.log(userObligate)
 
       /* création du new user avec les champs obligatoires + ceux opitonnels trouvés dans la const userObligate */
       const newUser = new User(userObligate);
@@ -269,6 +290,7 @@ router.post('/iprofil', (req, res) => {
 
       res.json({ result: true, user })
     })
+    .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la recherche du user', error }));
 })
 
 
@@ -309,7 +331,7 @@ router.put('/update', (req, res) => {
 
       res.json({ result: true, user });
     })
-
+    .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la mise à jour', error }));
 })
 
 
