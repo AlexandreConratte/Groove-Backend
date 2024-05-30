@@ -44,13 +44,49 @@ router.post('/getAllFriends', function (req, res) {
     })
 });
 
+// router.put('/addFriend', function (req, res) {
+//   User.findOne({ token: req.body.friendToken })
+//     .then((friendData) => {
+//       User.updateOne({ token: req.body.token }, { $push: { friends: friendData.id } })
+//         .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
+//     })
+// })
 router.put('/addFriend', function (req, res) {
-  User.findOne({ token: req.body.friendToken })
+  const { token, friendToken } = req.body;
+
+  if (!token || !friendToken) {
+    return res.status(400).json({ result: false, message: 'Tokens are required' });
+  }
+
+  User.findOne({ token: friendToken })
     .then((friendData) => {
-      User.updateOne({ token: req.body.token }, { $push: { friends: friendData.id } })
-        .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
+      if (!friendData) {
+        return res.status(404).json({ result: false, message: 'Friend not found' });
+      }
+
+      User.findOne({ token })
+        .then((userData) => {
+          if (!userData) {
+            return res.status(404).json({ result: false, message: 'User not found' });
+          }
+
+          // Vérifiez si l'utilisateur et l'ami ne sont pas déjà amis
+          if (userData.friends.includes(friendData._id) && friendData.friends.includes(userData._id)) {
+            return res.status(400).json({ result: false, message: 'Already friends' });
+          }
+
+          // Utiliser Promise.all pour effectuer les deux mises à jour en parallèle
+          Promise.all([
+            User.updateOne({ token }, { $push: { friends: friendData._id } }),
+            User.updateOne({ token: friendToken }, { $push: { friends: userData._id } })
+          ])
+          .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
+          .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de l\'ajout de l\'ami', error }));
+        })
+        .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la recherche de l\'utilisateur', error }));
     })
-})
+    .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la recherche de l\'ami', error }));
+});
 
 router.put('/deleteFriend', function (req, res) {
   User.findOne({ token: req.body.friendToken })
@@ -231,7 +267,7 @@ router.post('/iprofil', (req, res) => {
   const { token } = req.body
 
   User.findOne({ token: token })
-    .select('-_id -password -token -friends -likedFestivals -memoriesFestivals') // pour retires les champs dont on a pas besoin
+    .select('-_id -password -token -friends -likedFestivals -memoriesFestivals') // pour retirer les champs dont on a pas besoin
     .populate('styles').populate('artists')
     .then(user => {
       if (!user) {
