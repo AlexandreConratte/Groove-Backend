@@ -11,13 +11,6 @@ const uniqid = require('uniqid');
 const cloudinary = require('cloudinary').v2;
 
 
-router.post('/infoUser', (req, res) => {
-  User.findById(req.body.id)
-    .select('-_id -password -token -friends -likedFestivals -memoriesFestivals') // pour retires les champs dont on a pas besoin
-    .then(user => {
-      res.json({ result: true, user })
-    })
-})
 
 router.post('/getAllUsers', function (req, res) {
   User.find()
@@ -73,8 +66,8 @@ router.put('/addFriend', function (req, res) {
             User.updateOne({ token }, { $push: { friends: friendData._id } }),
             User.updateOne({ token: friendToken }, { $push: { friends: userData._id } })
           ])
-          .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
-          .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de l\'ajout de l\'ami', error }));
+            .then(() => res.json({ result: true, message: 'Ami(e) ajouté' }))
+            .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de l\'ajout de l\'ami', error }));
         })
         .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la recherche de l\'utilisateur', error }));
     })
@@ -105,8 +98,8 @@ router.put('/deleteFriend', function (req, res) {
             User.updateOne({ token }, { $pull: { friends: friendData._id } }),
             User.updateOne({ token: friendToken }, { $pull: { friends: userData._id } })
           ])
-          .then(() => res.json({ result: true, message: 'Ami(e) supprimé' }))
-          .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la suppression de l\'ami', error }));
+            .then(() => res.json({ result: true, message: 'Ami(e) supprimé' }))
+            .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la suppression de l\'ami', error }));
         })
         .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la recherche de l\'utilisateur', error }));
     })
@@ -219,7 +212,7 @@ router.post('/findLiked', (req, res) => {
 router.post('/checkUser', (req, res) => {
   const { username } = req.body;
   const regex_user = new RegExp("^" + username + "$", "i")
-  User.findOne({ username : regex_user })
+  User.findOne({ username: regex_user })
     .then(data => {
       if (data) {
         res.json({ result: true, error: "User déjà existant" }); //verifie qu'il y a un utilisateur, ce qui nous coduit à l'erreur en screen connect2
@@ -294,6 +287,13 @@ router.post('/iprofil', (req, res) => {
 })
 
 
+router.post('/infoUser', (req, res) => {
+  User.findById(req.body.id)
+    .select('-_id -password -token -friends -likedFestivals -memoriesFestivals') 
+    .then(user => {
+      res.json({ result: true, user })
+    })
+})
 
 
 
