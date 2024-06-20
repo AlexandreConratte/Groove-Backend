@@ -289,7 +289,7 @@ router.post('/iprofil', (req, res) => {
 
 router.post('/infoUser', (req, res) => {
   User.findById(req.body.id)
-    .select('-_id -password -token -friends -likedFestivals -memoriesFestivals') 
+    .select('-_id -password -token -friends -likedFestivals -memoriesFestivals')
     .then(user => {
       res.json({ result: true, user })
     })
@@ -332,6 +332,23 @@ router.put('/update', (req, res) => {
       res.json({ result: true, user });
     })
     .catch((error) => res.status(500).json({ result: false, message: 'Erreur lors de la mise à jour', error }));
+})
+
+router.post('/photo', async (req, res) => {
+
+  const photoPath = `/tmp/${uniqid()}.jpg`;
+  const resultMove = await req.files.photoFromFront.mv(photoPath);
+
+  if (!resultMove) {
+    const resultCloudinary = await cloudinary.uploader.upload(photoPath);
+
+    res.json({ result: true, url: resultCloudinary.secure_url });
+  }
+
+  else {
+    res.json({ result: false, error: resultMove });
+
+  };
 })
 
 
