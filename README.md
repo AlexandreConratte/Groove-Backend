@@ -2,6 +2,8 @@
 
 Groove est une application en cours de développement, codée en JavaScript avec React Native et CSS, conçue pour vous aider à découvrir des festivals de musique autour de chez vous.
 
+Video Présentation : https://drive.google.com/file/d/1F73oOO3Ky8mnawjHI4yU9bJ3-pMN9QRl/view?usp=sharing
+
 ## Fonctionnalités
 
 - **Recherche de Festivals :** Trouvez facilement des festivals de musique à proximité de votre position.
